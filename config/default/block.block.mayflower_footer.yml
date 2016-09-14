@@ -13,7 +13,7 @@ _core:
 id: mayflower_footer
 theme: mayflower
 region: '-1'
-weight: -5
+weight: -10
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

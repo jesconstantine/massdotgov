@@ -15,7 +15,7 @@ _core:
 id: mayflower_branding
 theme: mayflower
 region: header
-weight: -6
+weight: -10
 provider: null
 plugin: system_branding_block
 settings:

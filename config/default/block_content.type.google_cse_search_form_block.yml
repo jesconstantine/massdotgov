@@ -1,0 +1,8 @@
+uuid: c9979e09-b0ed-4318-870d-a4cd2ca6fc96
+langcode: en
+status: true
+dependencies: {  }
+id: google_cse_search_form_block
+label: 'Google CSE Search Form Block'
+revision: 1
+description: 'Holds the embed code for a google cse search form'

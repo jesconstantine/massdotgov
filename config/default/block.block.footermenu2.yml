@@ -15,7 +15,7 @@ third_party_settings:
 id: footermenu2
 theme: mayflower
 region: footer_navigation
-weight: -10
+weight: -9
 provider: null
 plugin: 'system_menu_block:footer-menu-2'
 settings:
