@@ -1,0 +1,35 @@
+uuid: 52b42c8f-b39b-4072-b33e-13e5aa379b1a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:44f06532-e15a-4b61-9e00-39b6fb92077a'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ma__header__backto
+id: backtomassgov
+theme: mayflower
+region: back
+weight: -11
+provider: null
+plugin: 'block_content:44f06532-e15a-4b61-9e00-39b6fb92077a'
+settings:
+  id: 'block_content:44f06532-e15a-4b61-9e00-39b6fb92077a'
+  label: 'Back to Massgov'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
