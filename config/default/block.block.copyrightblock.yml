@@ -15,7 +15,7 @@ third_party_settings:
 id: copyrightblock
 theme: mayflower
 region: footer_info
-weight: -11
+weight: -9
 provider: null
 plugin: 'block_content:0d5972bf-2221-4c8a-9ee7-d29a7f79cc71'
 settings:
