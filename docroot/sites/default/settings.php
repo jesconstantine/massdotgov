@@ -246,6 +246,9 @@
  */
 $config_directories = array();
 
+// set config sync directory (called vcs) to directory outside webroot
+$config_directories['vcs'] = $app_root . '/../config/' . basename($site_path);
+
 /**
  * Settings:
  *
@@ -711,9 +714,9 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *
  * Keep this code block at the end of this file to take full effect.
  */
-# if (file_exists(__DIR__ . '/settings.local.php')) {
-#   include __DIR__ . '/settings.local.php';
-# }
+if (file_exists(__DIR__ . '/settings.local.php')) {
+  include __DIR__ . '/settings.local.php';
+}
 
 
 // On Acquia Cloud, this include file configures Drupal to use the correct
