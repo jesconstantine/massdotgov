@@ -1,9 +1,9 @@
-uuid: 844c5aeb-248e-4d1f-8a71-de572b01b979
+uuid: c395a054-0e86-4423-a120-1648c4cd5d5a
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - system.menu.pilot-menu
   module:
     - block_class
     - system
@@ -12,17 +12,15 @@ dependencies:
 third_party_settings:
   block_class:
     classes: ''
-_core:
-  default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
-id: mayflower_main_menu
+id: pilotmenu
 theme: mayflower
 region: primary_menu
-weight: 0
+weight: -11
 provider: null
-plugin: 'system_menu_block:main'
+plugin: 'system_menu_block:pilot-menu'
 settings:
-  id: 'system_menu_block:main'
-  label: 'Main navigation'
+  id: 'system_menu_block:pilot-menu'
+  label: 'Pilot Menu'
   provider: system
   label_display: '0'
   level: 1
@@ -31,5 +29,5 @@ visibility:
   request_path:
     id: request_path
     pages: '<front>'
-    negate: true
+    negate: false
     context_mapping: {  }
