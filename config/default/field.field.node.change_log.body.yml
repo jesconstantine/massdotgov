@@ -1,0 +1,22 @@
+uuid: 4fc617fe-ca1b-483a-a784-bbd807ab459f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.change_log
+  module:
+    - text
+id: node.change_log.body
+field_name: body
+entity_type: node
+bundle: change_log
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
