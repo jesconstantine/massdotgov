@@ -1,0 +1,30 @@
+name: Mayflower
+type: theme
+description: Mass.gov parent theme
+base theme: stable
+core: 8.x
+screenshot: mayflower.jpg
+
+logo:
+  path: 'themes/custom/mayflower/logo.png'
+  use_default: false
+
+regions:
+  page_top: Page top
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  pre_content: Pre content
+  content: Content
+  sidebar: Sidebar
+  post_content: Post content
+  footer_info: Footer information
+  footer_navigation: Footer navigation
+  page_bottom: Page bottom
+
+libraries:
+  - mayflower/global-css
+  - mayflower/global-js
+
+libraries-override:
+  core/modernizr: mayflower/mass-modernizr

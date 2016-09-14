@@ -1,0 +1,482 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - messages: Status and error messages. Should be displayed prominently.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.pre_content: Breadcrumbs, help, highlighted, title, and intro text.
+ * - page.content: The main content of the current page.
+ * - page.postcontent: Breadcrumbs, other content.
+ * - page.sidebar: Items for the sidebar.
+ * - page.footer_info: Informational items for the footer region.
+ * - page.footer_navigation: Navigation items for the footer region.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+  <header role="banner" class="ma__header">
+    <a class="ma__header__skip-nav" href="#main-content">skip navigation</a>
+    {{ page.header }}
+    <nav class="ma__header__nav">
+      <div class="ma__header__button-container">
+        <button class="ma__header__back-button js-close-sub-nav"><span>Back</span></button>
+        <button class="ma__header__menu-button js-header-menu-button">
+          <span>Menu</span><span class="ma__header__menu-icon"></span>
+        </button>
+      </div><!-- .ma__header__button-container -->
+      <div class="ma__header__nav-container">
+        <div class="ma__header__nav-search">
+          <section class="ma__header-search">
+            <form action="#" class="js-header-search-form">
+              <label for="header-search" class="ma__header-search__label">Search</label>
+              <input id="header-search" class="ma__header-search__input" placeholder="What can we help you find?" type="text">
+              <button type="submit" class="ma__button-search">
+                <span>Search</span>
+                <svg role="img" class="ma__button-search__icon">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/{{directory}}/images/svg-sprite.svg#search"></use>
+                </svg>
+              </button>
+            </form>
+          </section>
+        </div><!-- .ma__header__nav-search -->
+        <div class="ma__header__main-nav">
+          {{ page.primary_menu }}
+        </div><!-- .ma__header__main-nav -->
+        <div class="ma__header__utility-nav">
+          {{ page.secondary_menu }}
+        </div><!-- .ma__header__utility-nav -->
+      </div><!-- .ma__header__nav-container -->
+    </nav><!-- ma__header__nav -->
+  </header>
+
+
+  <div class="pre-content">
+    {{ page.pre_content }}
+  </div><!-- .pre-content -->
+
+  <div class="main-content{% if page.sidebar %} main-content--two{% endif %}" role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="page-content">
+      {# {{ page.content }} #}
+      <section class="ma__link-list">
+        <div class="ma__link-list__container">
+          <div id="cse" style="width: 100%;">Loading</div>
+            <script src="//www.google.com/jsapi" type="text/javascript"></script><script type="text/javascript">
+            <!--//--><![CDATA[// ><!--
+
+            google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
+            google.setOnLoadCallback(function() {
+              var customSearchOptions = {};
+              // var orderByOptions = {};
+              // orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+              customSearchOptions['enableOrderBy'] = false;
+              // customSearchOptions['orderByOptions'] = orderByOptions;
+              var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
+              customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+              var options = new google.search.DrawOptions();
+              options.enableSearchResultsOnly();
+              options.setAutoComplete(true);
+              customSearchControl.draw('cse', options);
+              function parseParamsFromUrl() {
+                var params = {};
+                var parts = window.location.search.substr(1).split('&');
+                for (var i = 0; i < parts.length; i++) {
+                  var keyValuePair = parts[i].split('=');
+                  var key = decodeURIComponent(keyValuePair[0]);
+                  params[key] = keyValuePair[1] ?
+                      decodeURIComponent(keyValuePair[1].replace(/\+/g, ' ')) :
+                      keyValuePair[1];
+                }
+                return params;
+              }
+              var urlParams = parseParamsFromUrl();
+              var queryParamName = 'q';
+              if (urlParams[queryParamName]) {
+                customSearchControl.execute(urlParams[queryParamName]);
+              }
+            }, true);
+
+            //--><!]]>
+            </script>
+            <style type="text/css">
+          <!--/*--><![CDATA[/* ><!--*/
+          /*
+           .gsc-resultsbox-visible * {
+            background-color: #fff;
+           }
+           */
+            /*.gsc-control-cse {*/
+              /*font-family: Arial, sans-serif;*/
+              font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+              border-color: #FFFFFF;
+              background-color: #FFFFFF;
+            }
+            .gsc-control-cse .gsc-table-result {
+              /*font-family: Arial, sans-serif;*/
+              font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+            }
+
+           .gsc-above-wrapper-area,
+           .gsc-above-wrapper-area table.gsc-above-wrapper-area-container,
+           .gsc-result-info {
+              margin: 0;
+              padding: 0;
+           }
+            .gsc-above-wrapper-area table.gsc-above-wrapper-area-containertd {
+              padding: 0 9px;
+           }
+           /* ------------------------------
+                tabs
+             ------------------------------ */
+            .gsc-tabHeader.gsc-tabhInactive {
+              border-color: #333333;
+              background-color: #333333;
+            }
+            .gsc-tabHeader.gsc-tabhActive {
+              border-color: #777777;
+              background-color: #999999;
+            }
+            .gsc-tabsArea {
+              border-color: #333333;
+            }
+
+          /* ------------------------------
+                resutls
+             ------------------------------ */
+            .gsc-webResult.gsc-result, .gsc-results .gsc-imageResult {
+            /*  border-color: #FFFFFF; */
+              border: none;
+              border-left: 3px solid #fff;
+              background-color: #FFFFFF;
+            }
+            .gsc-webResult.gsc-result:hover, .gsc-imageResult:hover {
+              border: none;
+              border-left: 3px solid #777;
+              background-color: #FFFFFF;
+            }
+            .gsc-webResult.gsc-result.gsc-promotion * {
+              border: none;
+            }
+            .gsc-webResult.gsc-result.gsc-promotion {
+              border: none;
+              border-left: 3px solid #f6f6e5;
+              background-color: #f6f6e5;
+            }
+            .gsc-webResult.gsc-result.gsc-promotion:hover {
+              border: none;
+              border-left: 3px solid #969932;
+              background-color: #f1f2d8;
+            }
+            .gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b  {
+              /* color: #444444; */
+              color: #0000cc;
+            }
+            .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b {
+              color: #444444;
+            }
+            .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b {
+              /* color: #444444; */
+              /*color: #0000cc;*/
+            }
+            .gs-webResult.gs-result a.gs-title:active, .gs-webResult.gs-result a.gs-title:active b, .gs-imageResult a.gs-title:active, .gs-imageResult a.gs-title:active b {
+              color: #777777;
+            }
+            .gsc-cursor-page {
+              color: #444444;
+            }
+            a.gsc-trailing-more-results:link {
+              color: #444444;
+            }
+            .gs-webResult .gs-snippet, .gs-imageResult .gs-snippet, .gs-fileFormatType {
+              color: #333333;
+            }
+            .gs-webResult div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
+              color: #000000;
+            }
+            .gs-webResult div.gs-visibleUrl-short {
+              color: #000000;
+            }
+            .gs-webResult div.gs-visibleUrl-short  {
+              display: none;
+            }
+            .gs-webResult div.gs-visibleUrl-long {
+              display: block;
+            }
+            .gs-promotion div.gs-visibleUrl-short {
+              display: none;
+            }
+            .gs-promotion div.gs-visibleUrl-long  {
+              display: block;
+            }
+            .gsc-cursor-box {
+              border-color: #FFFFFF;
+            }
+            .gsc-results .gsc-cursor-box .gsc-cursor-page {
+              border-color: #777777;
+              background-color: #FFFFFF;
+              color: #444444;
+
+              margin-right: 1em;
+            }
+            .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+              border-color: #333333;
+              background-color: #fff; /* #333333; */
+              color: #444444;
+            }
+            /*
+            .gsc-webResult.gsc-result.gsc-promotion {
+              border-color: #FFFFFF;
+              background-color: #FFFFFF;
+            }
+            */
+            .gsc-completion-title {
+              color: #444444;
+            }
+            .gsc-completion-snippet {
+              color: #333333;
+            }
+            .gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link  {
+              color: #0000CC;
+            }
+            .gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited {
+              color: #0000CC;
+            }
+            .gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover  {
+              color: #444444;
+            }
+            .gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active {
+              color: #49492b;
+            }
+            .gs-promotion .gs-snippet, .gs-promotion .gs-title .gs-promotion-title-right, .gs-promotion .gs-title .gs-promotion-title-right * {
+              color: #333333;
+            }
+            .gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short  {
+              color: #405372;
+            }
+            .gs-promotion:hover .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short  {
+              color: #405372;
+            }
+
+            /* ------------------------------
+                custom override
+             ------------------------------ */
+
+            .gsc-resultsHeader, .gcsc-branding {
+               display: none;
+            }
+            /* results count */
+            .gsc-above-wrapper-area {
+
+            }
+
+            /* promoted result container */
+            .gsc-webResult.gsc-result.gsc-promotion,
+            .gsc-webResult.gsc-result.gsc-promotion:hover {
+                border: none;
+                border-left: 3px solid #43956f;
+                background-color: #43956f;
+                color: #fff;
+                padding: 2em;
+                margin-top: 0;
+                display: block;
+                margin: 1em;
+            }
+
+            @media (min-width: 801px) {
+              .gsc-webResult.gsc-result.gsc-promotion,
+              .gsc-webResult.gsc-result.gsc-promotion:hover {
+                display: inline-block;
+                margin-right: 1.6129%;
+                padding: 3em;
+                width: 30.25806%;
+              }
+            }
+
+            /* promoted result link */
+            .gs-promotion a.gs-title:link, .gs-promotion a.gs-title:link *, .gs-promotion .gs-snippet a:link {
+              font-size: 20px;
+              font-weight: 700;
+              font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+              color: #fff;
+              border-bottom: 3px solid transparent;
+              padding-top: 3px;
+              padding-bottom: 3px;
+              -webkit-transition: border 0.4s ease;
+              transition: border 0.4s ease;
+            }
+
+            .gs-promotion a.gs-title, .gs-promotion a.gs-title * {
+              text-decoration: none;
+            }
+
+            .gs-promotion.gs-result .gs-title {
+                overflow: visible;
+                height: 2em;
+            }
+
+            /* promoted link hover */
+            .gs-promotion a.gs-title:hover, .gs-promotion a.gs-title:hover *, .gs-promotion .gs-snippet a:hover {
+              border-color: #fff;
+            }
+
+            /* promoted visible url */
+            .gs-promotion .gs-visibleUrl, .gs-promotion .gs-visibleUrl-short {
+              color: #fff !important;
+            }
+
+            /* hide promoted visible url */
+            .gs-promotion div.gs-visibleUrl-long {
+              display: none;
+            }
+
+            /* standard result container */
+            .gsc-expansionArea .gsc-webResult.gsc-result {
+              margin: 2em 0;
+            }
+
+            /* result container hover style */
+            .cse .gsc-webResult.gsc-result:hover, .gsc-webResult.gsc-result:hover, .gsc-results .gsc-imageResult-classic:hover, .gsc-results .gsc-imageResult-column:hover {
+                border: none;
+                border-left: 3px solid #43956f;
+                background-color: #FFFFFF;
+            }
+
+            /* result links */
+            .gs-result .gs-title, .gs-result .gs-title * {
+                color: #14558f;
+                text-decoration: none;
+                line-height: 1.67;
+            }
+
+            /* result title font size */
+            .gsc-control-cse .gs-spelling, .gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
+                font-size: 18px;
+            }
+
+            /* show title overflow so we can see bottom border hover effect*/
+            .gs-result .gs-title {
+                overflow: visible;
+                height: 1.75em;
+            }
+
+            .gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b {
+                font-weight: 700;
+                font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+                color: #14558f;
+                border-bottom: 3px solid transparent;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                -webkit-transition: border 0.4s ease;
+                transition: border 0.4s ease;
+            }
+
+            /* result link hover styles */
+            .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b {
+                border-bottom: 3px solid #14558f;
+                outline-width: 0;
+            }
+
+            .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b {
+              /* color: #444444; */
+              /*color: #0000cc;*/
+              color: #14558f;
+            }
+
+            .gs-webResult .gs-snippet, .gs-imageResult .gs-snippet, .gs-fileFormatType {
+              color: #535353;
+            }
+
+            div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
+              color: #141414;
+            }
+
+            /* results coount, result background */
+            /*.cse .gsc-control-wrapper-cse .sc-resultsbox-visible tr */
+
+            .gsc-above-wrapper-area-container tr,
+            .gs-promotion-table tr,
+            .gsc-table-result tr {
+              background: none;
+            }
+            /* search description */
+            .gsc-table-cell-snippet-close .gs-snippet {
+              margin: 0.8em 0 0.3em 0;
+            }
+            .gsc-webResult.gsc-result {
+              margin-top: 2em;
+              margin-bottm: 0;
+            }
+            .gsc-webResult.gsc-result.gsc-promotion {
+              margin-top: 1em;
+            }
+            .gsc-table-cell-snippet-close .gs-snippet {
+              margin: 0.5em 0 0.3em;
+              line-height: 1.5em;
+            }
+            .gsc-above-wrapper-area {
+              border-bottom: none;
+            }
+            .gsc-results .gsc-cursor-box {
+              margin-top: 1em;
+              text-align: center;
+              font-size: 1.3em;
+            }
+            .cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page, .gsc-results .gsc-cursor-page.gsc-cursor-current-pagen {
+              padding: 0;
+            }
+
+          /*--><!]]>*/
+          </style>
+        </div><!-- .ma__link-list__container -->
+      </section><!-- .ma__link-list -->
+    </div><!-- .page-content -->
+
+    {% if page.sidebar %}
+      <div class="sidebar" role="complementary">
+        {{ page.sidebar }}
+      </div><!-- .sidebar -->
+    {% endif %}
+
+  </div><!-- .main-content -->
+
+  <div class="post-content">
+    {{ page.post_content }}
+  </div><!-- .post-content -->
+
+  <footer class="ma__footer" role="contentinfo">
+    <button class="ma__footer__back2top js-back2top" style="display: inline-block;">Top</button>
+    <div class="ma__footer__container">
+      {{ page.footer_navigation }}
+      {{ page.footer_info }}
+    </div><!-- .ma__footer__container -->
+  </footer>

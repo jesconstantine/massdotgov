@@ -1,0 +1,19 @@
+global-css:
+  css:
+    theme:
+      https://cloud.typography.com/7638692/6594352/css/fonts.css: { type:external}
+      css/index-generated.css: {}
+      css/base-theme-generated.css: {}
+
+global-js:
+  js:
+    # js/vendor-generated.js: {}
+    js/index-generated.js: {}
+  dependencies:
+    - core/jquery
+
+
+mass-modernizr:
+  header: true
+  js:
+    js/vendor/modernizr.js: {}

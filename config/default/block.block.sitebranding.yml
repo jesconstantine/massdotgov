@@ -1,0 +1,27 @@
+uuid: 595f77b0-fa31-4c1d-8820-1ada6304bc97
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ma__footer__logo
+id: sitebranding
+theme: mayflower
+region: footer_info
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

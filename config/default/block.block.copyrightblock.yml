@@ -1,0 +1,29 @@
+uuid: a54a5d88-784b-47cb-95c9-e60af23c6603
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:541f3dc0-33f3-4462-95e9-e5727dbcb558'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ''
+id: copyrightblock
+theme: mayflower
+region: footer_info
+weight: -6
+provider: null
+plugin: 'block_content:541f3dc0-33f3-4462-95e9-e5727dbcb558'
+settings:
+  id: 'block_content:541f3dc0-33f3-4462-95e9-e5727dbcb558'
+  label: 'Copyright Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

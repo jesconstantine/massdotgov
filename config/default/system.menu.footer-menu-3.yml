@@ -1,0 +1,8 @@
+uuid: cd6e4d7c-7b6e-4f75-b49d-ea433ba689d1
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-3
+label: 'Footer Menu 3'
+description: 'Meta information, rightmost menu'
+locked: false

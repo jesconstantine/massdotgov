@@ -1,0 +1,28 @@
+uuid: 5da580d5-d263-4fed-b924-27a2aa7c8874
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu-1
+  module:
+    - block_class
+    - system
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ''
+id: footermenu1
+theme: mayflower
+region: footer_navigation
+weight: -9
+provider: null
+plugin: 'system_menu_block:footer-menu-1'
+settings:
+  id: 'system_menu_block:footer-menu-1'
+  label: 'Footer Menu 1'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

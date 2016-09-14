@@ -1,0 +1,22 @@
+uuid: c03b7061-8a1f-466d-9ae4-33755d08164a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mayflower
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: mayflower_breadcrumbs
+theme: mayflower
+region: pre_content
+weight: -6
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
