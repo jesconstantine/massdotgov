@@ -246,6 +246,9 @@
  */
 $config_directories = array();
 
+// set config sync directory (called vcs) to directory outside webroot
+$config_directories['vcs'] = $app_root . '/../config/' . basename($site_path);
+
 /**
  * Settings:
  *
