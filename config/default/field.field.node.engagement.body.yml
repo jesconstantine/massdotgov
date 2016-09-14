@@ -1,0 +1,22 @@
+uuid: 39f7c721-2f18-4a05-9f12-9c60a6a95f57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.engagement
+  module:
+    - text
+id: node.engagement.body
+field_name: body
+entity_type: node
+bundle: engagement
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

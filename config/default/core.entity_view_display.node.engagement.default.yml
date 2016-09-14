@@ -1,0 +1,36 @@
+uuid: b486cb58-ef00-4dca-8e8b-a9fbd835daac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.engagement.body
+    - field.field.node.engagement.field_icon
+    - node.type.engagement
+  module:
+    - image
+    - text
+    - user
+id: node.engagement.default
+targetEntityType: node
+bundle: engagement
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  field_icon:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  links:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
