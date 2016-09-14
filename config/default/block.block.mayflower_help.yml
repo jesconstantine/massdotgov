@@ -1,0 +1,22 @@
+uuid: 09af44ca-2c99-4f27-b6c1-2c6ccdd297c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - mayflower
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: mayflower_help
+theme: mayflower
+region: pre_content
+weight: -4
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

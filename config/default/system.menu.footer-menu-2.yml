@@ -1,0 +1,8 @@
+uuid: cb18ba15-ec40-4925-9b30-602399892d4a
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-2
+label: 'Footer Menu 2'
+description: 'Important links, middle menu'
+locked: false

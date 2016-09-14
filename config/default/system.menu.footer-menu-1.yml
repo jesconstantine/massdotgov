@@ -1,0 +1,8 @@
+uuid: de93605a-9244-4756-b33f-4871d39bfe38
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-1
+label: 'Footer Menu 1'
+description: 'L0 Pages, leftmost menu'
+locked: false

@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Mayflower theme.
+ */
+
+// used by hook_form_alter
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_form_alter() to add classes to the search form.
+ */
+
+function mayflower_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  /**
+   * Add custom attributes to search block and search forms
+   * See: https://www.webomelette.com/theming-drupal-forms-custom-classes
+   */
+  if (in_array($form_id, ['search_block_form', 'search_form'])) {
+    $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
+
+    if (!isset($form[$key]['submit']['#attributes'])) {
+      $form[$key]['submit']['#attributes'] = new Attribute();
+    }
+
+    // add class to existing submit button
+    $form[$key]['submit']['#attributes']->addClass('ma__button-search');
+
+    // losing
+    // rewrite the submit button to use button element, svg content
+    // see: http://drupal.stackexchange.com/questions/13796/generating-button-type-submit-with-the-form-api
+    // see also: https://www.drupal.org/node/2134925
+    // $form[$key]['submit'] = array(
+    //   '#type' => 'submit',
+    //   '#value' => '',
+    //   '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+    //   '#submit' => array( 'my_callback_for_the_form_submit' ),
+    //   '#prefix' => '<button type="submit" id="edit-submit-btn name="op" class="ma__button-search form-submit">',
+    //   '#suffix' => '</button>',
+    //   '#markup' => '<span>Search</span><svg role="img" class="ma__button-sesarch__icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/themes/custom/mayflower/images/svg-sprint.svg#search"></use></svg>',
+    // );
+
+    // <form> element -- losing
+    $form['#attributes']['class'][] = 'js-header-search-form';
+
+    // text input element
+    $form['keys']['#attributes']['id'] = "header-search";
+    $form['keys']['#attributes']['class'][] = "ma__header-search__input";
+    $form['keys']['#attributes']['placeholder'] = "What can we help you find?";
+  }
+}
