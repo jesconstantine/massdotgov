@@ -5,6 +5,11 @@ global-css:
       css/index-generated.css: {}
       css/base-theme-generated.css: {}
 
+pilot-css:
+  css:
+    theme:
+      css/pilot-generated.css: {}
+
 global-js:
   js:
     # js/vendor-generated.js: {}
