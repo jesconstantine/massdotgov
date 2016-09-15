@@ -6,8 +6,10 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.blog.body
     - field.field.node.blog.field_featured_image
+    - image.style.blog_featured_image_thumbnail
     - node.type.blog
   module:
+    - image
     - text
     - user
 id: node.blog.teaser
@@ -18,13 +20,20 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 0
+    weight: 1
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_featured_image:
+    type: image
+    weight: 0
+    label: above
+    settings:
+      image_style: blog_featured_image_thumbnail
+      image_link: content
+    third_party_settings: {  }
   links:
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_featured_image: true
+hidden: {  }
