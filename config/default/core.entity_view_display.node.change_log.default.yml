@@ -1,0 +1,26 @@
+uuid: 0ae2310e-6af5-4dce-b7c3-790fa65e2921
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.change_log.body
+    - node.type.change_log
+  module:
+    - text
+    - user
+id: node.change_log.default
+targetEntityType: node
+bundle: change_log
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

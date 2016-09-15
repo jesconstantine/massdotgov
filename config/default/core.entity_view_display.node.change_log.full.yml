@@ -1,0 +1,27 @@
+uuid: 0a24a128-aa0a-4264-96ec-3f7535edc962
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.change_log.body
+    - node.type.change_log
+  module:
+    - text
+    - user
+id: node.change_log.full
+targetEntityType: node
+bundle: change_log
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

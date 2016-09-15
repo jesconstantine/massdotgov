@@ -1,0 +1,14 @@
+uuid: d06aabca-8555-4a13-a260-73a58686cb6c
+langcode: en
+status: true
+dependencies: {  }
+name: blog_featured_image_thumbnail
+label: 'Blog Featured Image Thumbnail'
+effects:
+  e5019516-de1b-4dc1-a3a7-acf27aae63ce:
+    uuid: e5019516-de1b-4dc1-a3a7-acf27aae63ce
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 180
