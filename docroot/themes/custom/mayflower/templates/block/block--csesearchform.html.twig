@@ -41,13 +41,12 @@
       <div id="cse-search-form" style="width: 100%;">Loading</div>
       <script src="//www.google.com/jsapi" type="text/javascript"></script>
       <script type="text/javascript">
+        <!--//--><![CDATA[// ><!--
         /*
           begin google custom search js embed
           using Mass.gov custom search engine at cse.google.com
           v1 code
          */
-        <!--//--><![CDATA[// ><!--
-
         google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
         google.setOnLoadCallback(function() {
           var customSearchOptions = {};
@@ -73,18 +72,20 @@
         </svg>
       </button>
       <script type="text/javascript">
-        // ****** Mobile Search button should open mobile menu ******
-        var mobileSearchButton = document.querySelector(".ma__header__search .ma__header-search .ma__button-search");
+        (function(){
+          // ****** Mobile Search button should open mobile menu ******
+          var mobileSearchButton = document.querySelector(".ma__header__search .ma__header-search .ma__button-search");
 
-        if(null !== mobileSearchButton){
-          mobileSearchButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            document.querySelector("body").classList.toggle("show-menu");
-          });
-        }
+          if(null !== mobileSearchButton){
+            mobileSearchButton.addEventListener("click", function(event) {
+              event.preventDefault();
+              document.querySelector("body").classList.toggle("show-menu");
+            });
+          }
+        })();
       </script>
+      <!-- /* google custom search styles, overriding minimal theme */ -->
       <style type="text/css">
-        /* google custom search styles, overriding minimal theme */
         <!--/*--><![CDATA[/* ><!--*/
         /* custom orverride */
         .cse form.gsc-search-box, form.gsc-search-box,
