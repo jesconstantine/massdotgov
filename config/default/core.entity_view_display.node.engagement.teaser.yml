@@ -1,0 +1,30 @@
+uuid: 8b7dc91b-513b-4680-b035-58c726389cff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.engagement.body
+    - field.field.node.engagement.field_icon
+    - node.type.engagement
+  module:
+    - text
+    - user
+id: node.engagement.teaser
+targetEntityType: node
+bundle: engagement
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_icon: true

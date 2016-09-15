@@ -1,0 +1,28 @@
+uuid: d25740a4-c3c1-4c3d-88df-b848a04875a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.change_log.body
+    - node.type.change_log
+  module:
+    - text
+    - user
+id: node.change_log.teaser
+targetEntityType: node
+bundle: change_log
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
