@@ -1,0 +1,21 @@
+uuid: 75f2ba08-f7b8-4a0a-abac-3b09df456fbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.google_cse_search_form_block
+    - field.field.block_content.google_cse_search_form_block.body
+  module:
+    - text
+id: block_content.google_cse_search_form_block.default
+targetEntityType: block_content
+bundle: google_cse_search_form_block
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
