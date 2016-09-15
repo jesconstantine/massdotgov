@@ -58,13 +58,52 @@ google.setOnLoadCallback(function() {
 }, true);
 
 //--><!]]>
-</script><style type="text/css">
+</script>
+<button class="ma__button-search">
+  <span>Search</span>
+  <svg role="img" class="ma__button-search__icon">
+    <use xlink:href="/{{directory}}/images/svg-sprite.svg#search"></use>
+  </svg>
+</button>
+<script type="text/javascript">
+// ****** Mobile Search button should open mobile menu ******
+var mobileSearchButton = document.querySelector(".ma__header__search .ma__header-search .ma__button-search");
+
+if(null !== mobileSearchButton){
+  mobileSearchButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    document.querySelector("body").classList.toggle("show-menu");
+  });
+}
+</script>
+<style type="text/css">
 <!--/*--><![CDATA[/* ><!--*/
 /* custom orverride */
 .cse form.gsc-search-box, form.gsc-search-box,
 .gsc-search-box {
   margin: 0;
   padding: 0;
+}
+@media (max-width: 620px) {
+  .cse form.gsc-search-box,
+  form.gsc-search-box,
+  .gsc-search-box {
+    display: none;
+  }
+
+  .ma__header__search .ma__header-search .ma__button-search {
+    display: inline-block;
+    position: static;
+    -webkit-transition: opacity .4s;
+    transition: opacity .4s;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 621px) {
+  .ma__header__search .ma__header-search .ma__button-search {
+    display: none;
+  }
 }
 table.gsc-search-box {
   margin: 0;
