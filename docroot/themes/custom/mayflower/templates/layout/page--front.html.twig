@@ -135,7 +135,177 @@
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="page-content">
-      {{ page.content }}
+      {# {{ page.content }} #}
+      <section class="ma__action-card">
+        <h2 class="ma__action-card__title">Things to Do</h2>
+        <div class="ma__action-card__description">
+          <section class="ma__rich-text">
+            <p>Here you&#039;ll find the pages we redesigned first</p>
+          </section>
+        </div>
+        <div class="ma__action-card__items">
+          <div class="ma__action-card__item js-clickable ma__action-card__item--green">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-pig-bank">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#pig-bank"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Unemployment</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="File for Unemployment">File for Unemployment&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--blue">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-apple">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#apple"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Health &amp; Social Services</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Apply for MassHealth Coverage">Apply for MassHealth Coverage&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-apple">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#apple"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Health &amp; Social Services</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Apply for SNAP Benefits">Apply for SNAP Benefits&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--dark-gray">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-gavel">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#gavel"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Legal &amp; Justice</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Respond to a Jury Duty Summons">Respond to a Jury Duty Summons&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--blue">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-campfire">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#campfire"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">State Parks &amp; Recreation</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Find a State Park">Find a State Park&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--green">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-certificate">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#certificate"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Professional Licensing &amp; Certification</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Apply for a Nursing License">Apply for a Nursing License&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--dark-gray">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-family">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#family"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Family &amp; Children</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Get a Child Support Order">Get a Child Support Order&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-id-card">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#id-card"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Recreational Licenses &amp; Permits</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Buy a Freshwater Fishing License">Buy a Freshwater Fishing License&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--green">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-bag-search">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#bag-search"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Finding a Job</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Get a State Job">Get a State Job&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--blue">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-server-rack">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#server-rack"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Business Services &amp; Resources</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Register Your Business">Register Your Business&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
       {{ page.front }}
     </div><!-- .page-content -->
 
