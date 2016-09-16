@@ -1,0 +1,34 @@
+uuid: ebabd10b-fdc7-4396-9ca0-bd439c1c8873
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.what_s_new_on_pilot_mass_gov
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ''
+id: views_block__what_s_new_on_pilot_mass_gov_block_1
+theme: mayflower
+region: front_5050
+weight: -12
+provider: null
+plugin: 'views_block:what_s_new_on_pilot_mass_gov-block_1'
+settings:
+  id: 'views_block:what_s_new_on_pilot_mass_gov-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
