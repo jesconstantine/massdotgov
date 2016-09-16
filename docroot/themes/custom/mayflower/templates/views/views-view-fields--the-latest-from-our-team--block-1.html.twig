@@ -35,19 +35,19 @@
   fields: created (as in date), featured-image, title (linked to node)
 #}
 
-<div class="ma__whats-new__image-wrapper">
+<div class="ma__blog-feed__image-wrapper">
     {{ fields.field_featured_image.content }}
-    <span class="ma__whats-new__date">{{fields.created.content}}</span>
+    <span class="ma__blog-feed__date">{{fields.created.content}}</span>
 </div>
-<div class="ma__whats-new__content">
-  <h4 class="ma__whats-new__link">
+<div class="ma__blog-feed__content">
+  <h4 class="ma__blog-feed__link">
     <span class="ma__decorative-link">
         {{ fields.title.content }}&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
           <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
         </svg>
     </span>
   </h4>
-  <div class="ma__whats-new__description">{{fields.body.content}}</div>
+  <div class="ma__blog-feed__description">{{fields.body.content}}</div>
 </div>
 
 {# template default #}

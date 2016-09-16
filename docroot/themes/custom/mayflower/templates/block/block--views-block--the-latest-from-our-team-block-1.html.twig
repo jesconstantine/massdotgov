@@ -28,21 +28,21 @@
 {# {{ kint(content.created) }} #}
 {%
   set classes = [
-    'ma__whats-new',
+    'ma__blog-feed',
   ]
 %}
 <section{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes.addClass('ma__whats-new__title') }}>{{ label }}</h2>
+    <h2{{ title_attributes.addClass('ma__blog-feed__title') }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
-  <div class="ma__whats-new__items">
+  <div class="ma__blog-feed__items">
     {% block content %}
       {{ content }}
     {% endblock %}
   </div>
-  <div class="ma__whats-new__view-all">
+  <div class="ma__blog-feed__view-all">
     <a href="{{ path('view.the_latest_from_our_team.page_1') }}">{{ 'See all posts'|t }}</a>
   </div>
 </section>
