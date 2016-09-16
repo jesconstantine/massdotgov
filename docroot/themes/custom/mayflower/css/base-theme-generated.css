@@ -23,14 +23,6 @@ body[data-theme="has-theme-black"] {
     fill: white !important;
     opacity: 1; }
 
-:focus {
-  outline-color: Highlight;
-  /* WebKit gets its native focus styles.
-   */ }
-  @media (-webkit-min-device-pixel-ratio: 0) {
-    :focus {
-      outline-color: -webkit-focus-ring-color; } }
-
 body {
   font-weight: 400;
   font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
@@ -49,9 +41,6 @@ h1, h2, h3, h4, h5, h6 {
 b, strong {
   font-weight: 700;
   font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif; }
-
-input {
-  border-color: #dcdcdc; }
 
 .ma__button {
   font-weight: 700;
@@ -122,6 +111,70 @@ input {
 
 .ma__decorative-link svg {
   fill: rgba(20, 85, 143, 0.5); }
+
+:focus {
+  border-color: Highlight !important;
+  /* WebKit gets its native focus styles.
+   */ }
+  @media (-webkit-min-device-pixel-ratio: 0) {
+    :focus {
+      outline-color: -webkit-focus-ring-color; } }
+
+input[type="email"],
+input[type="text"] {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #dcdcdc; }
+
+textarea {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #dcdcdc; }
+
+label {
+  font-weight: 500;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif; }
+
+.ma__input-radio input {
+  border-color: #dcdcdc; }
+
+.ma__input-radio label:before {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #dcdcdc;
+  color: transparent; }
+
+.ma__input-radio input:checked ~ label:before {
+  color: #535353; }
+
+.ma__input-radio input:focus ~ label:before {
+  border-color: Highlight !important;
+  /* WebKit gets its native focus styles.
+     */ }
+  @media (-webkit-min-device-pixel-ratio: 0) {
+    .ma__input-radio input:focus ~ label:before {
+      outline-color: -webkit-focus-ring-color; } }
+
+.ma__select-box__label {
+  font-weight: 500;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif; }
+
+.ma__select-box__select {
+  font-weight: 300;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+  color: #535353; }
+
+.ma__select-box__link {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #dcdcdc; }
+
+.ma__select-box__icon {
+  border-color: #dcdcdc; }
+
+.ma__select-box__select:focus + .ma__select-box__link {
+  border-color: Highlight;
+  /* WebKit gets its native focus styles.
+     */ }
+  @media (-webkit-min-device-pixel-ratio: 0) {
+    .ma__select-box__select:focus + .ma__select-box__link {
+      outline-color: -webkit-focus-ring-color; } }
 
 .ma__action-section h3:after {
   background-image: -webkit-linear-gradient(135deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%);
@@ -449,6 +502,8 @@ input {
             transform: translateX(-50%); }
 
 .ma__action-card__item {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   background-color: #f2f2f2;
   box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25); }
   .ma__action-card__item:hover {
@@ -561,6 +616,21 @@ input {
   .ma__action-finder__item .ma__callout-link {
     background-color: white; }
 
+.ma__blog-feed__title:after {
+  background-image: -webkit-linear-gradient(135deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%);
+  background-image: linear-gradient(-45deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%); }
+  .no-cssgradients .ma__blog-feed__title:after {
+    background-color: #43956f; }
+
+.ma__blog-feed__date {
+  font-weight: 900;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #141414; }
+
+.ma__blog-feed__view-all a:hover, .ma__blog-feed__view-all a:after {
+  border-color: rgba(20, 85, 143, 0.5); }
+
 .pre-content .ma__breadcrumbs {
   background-color: #f2f2f2; }
   .pre-content .ma__breadcrumbs ul {
@@ -650,6 +720,34 @@ input {
 
 .ma__contact-us__email:hover {
   border-color: rgba(20, 85, 143, 0.5); }
+
+.ma__feedback-form input,
+.ma__feedback-form textarea {
+  color: white; }
+
+.ma__feedback-form__overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white; }
+
+.ma__feedback-form__title {
+  color: white; }
+  .ma__feedback-form__title:after {
+    background-image: -webkit-linear-gradient(135deg, transparent 3%, #f6c51b 3%, #f6c51b 97%, transparent 97%);
+    background-image: linear-gradient(-45deg, transparent 3%, #f6c51b 3%, #f6c51b 97%, transparent 97%); }
+    .no-cssgradients .ma__feedback-form__title:after {
+      background-color: #f6c51b; }
+
+.ma__feedback-form__permission .ma__input-radio input:checked ~ label:before {
+  color: white; }
+
+.ma__feedback-form__controls button {
+  font-weight: 700;
+  font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+  background-color: #14558f;
+  border-color: transparent;
+  color: white; }
+  .ma__feedback-form__controls button:hover {
+    background-color: rgba(20, 85, 143, 0.75); }
 
 .ma__footer {
   background-color: #f2f2f2; }
@@ -803,6 +901,18 @@ input {
 .ma__split50--has-divider .ma__split50__container {
   border-top-color: #dcdcdc; }
 
+.ma__test-feed__title:after {
+  background-image: -webkit-linear-gradient(135deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%);
+  background-image: linear-gradient(-45deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%); }
+  .no-cssgradients .ma__test-feed__title:after {
+    background-color: #43956f; }
+
+.ma__test-feed__icon svg {
+  fill: #43956f; }
+
+.ma__test-feed__view-all a:hover, .ma__test-feed__view-all a:after {
+  border-color: rgba(20, 85, 143, 0.5); }
+
 .ma__top-actions__title:after {
   background-image: -webkit-linear-gradient(135deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%);
   background-image: linear-gradient(-45deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%); }
@@ -817,20 +927,5 @@ input {
 
 .ma__top-actions__link svg {
   fill: rgba(20, 85, 143, 0.5); }
-
-.ma__whats-new__title:after {
-  background-image: -webkit-linear-gradient(135deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%);
-  background-image: linear-gradient(-45deg, transparent 3%, rgba(67, 149, 111, 0.5) 3%, rgba(67, 149, 111, 0.5) 97%, transparent 97%); }
-  .no-cssgradients .ma__whats-new__title:after {
-    background-color: #43956f; }
-
-.ma__whats-new__date {
-  font-weight: 900;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #141414; }
-
-.ma__whats-new__view-all a:hover, .ma__whats-new__view-all a:after {
-  border-color: rgba(20, 85, 143, 0.5); }
 
 /*# sourceMappingURL=base-theme-generated.css.map */
