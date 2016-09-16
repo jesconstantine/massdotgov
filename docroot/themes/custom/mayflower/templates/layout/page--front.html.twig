@@ -415,7 +415,12 @@
   </div><!-- .post-content -->
 
   <footer class="ma__footer" role="contentinfo">
-    <button class="ma__footer__back2top js-back2top" style="display: inline-block;">Top</button>
+    <button class="ma__footer__back2top js-back2top is-hidden">
+      <svg focusable="false" role="presentation" class="svg-arrow">
+        <use xlink:href="/{{ directory }}/images/svg-sprite.svg#arrow"></use>
+      </svg>
+      <span>Top</span>
+    </button>
     <div class="ma__footer__container">
       {{ page.footer_navigation }}
       {{ page.footer_info }}
