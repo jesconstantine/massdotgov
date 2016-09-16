@@ -15,8 +15,8 @@ third_party_settings:
     classes: ''
 id: views_block__the_latest_from_our_team_block_1
 theme: mayflower
-region: front
-weight: null
+region: front_latest
+weight: -12
 provider: null
 plugin: 'views_block:the_latest_from_our_team-block_1'
 settings:
