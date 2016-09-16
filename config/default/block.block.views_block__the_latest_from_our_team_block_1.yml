@@ -1,0 +1,34 @@
+uuid: 864894b7-0d61-489b-b4b1-f35122d6e177
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.the_latest_from_our_team
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ''
+id: views_block__the_latest_from_our_team_block_1
+theme: mayflower
+region: front
+weight: null
+provider: null
+plugin: 'views_block:the_latest_from_our_team-block_1'
+settings:
+  id: 'views_block:the_latest_from_our_team-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
