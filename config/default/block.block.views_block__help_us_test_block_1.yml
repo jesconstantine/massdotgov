@@ -1,0 +1,34 @@
+uuid: 07a96fbd-5a06-498c-8f3f-aa1482fd4375
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.help_us_test
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ''
+id: views_block__help_us_test_block_1
+theme: mayflower
+region: front_5050
+weight: -11
+provider: null
+plugin: 'views_block:help_us_test-block_1'
+settings:
+  id: 'views_block:help_us_test-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
