@@ -39,8 +39,13 @@
     {% endif %}
     {% for item in items %}
       {% if menu_level == 0 %}
-        <li{{ item.attributes.addClass("ma__main-nav__item js-main-nav-toggle") }}>
-          {{ link(item.title, item.url, { 'class':['ma__main-nav__top-link'] }) }}
+        {% if item.below %}
+          <li{{ item.attributes.addClass("ma__main-nav__item js-main-nav-toggle has-subnav") }}>
+        {% else %}
+          <li{{ item.attributes.addClass("ma__main-nav__item") }}>
+        {% endif %}
+
+        {{ link(item.title, item.url, { 'class':['ma__main-nav__top-link'] }) }}
       {% else %}
         <li{{ item.attributes.addClass("ma__main-nav__subitem") }}>
           {{ link(item.title, item.url, { 'class':['ma__main-nav__link'] }) }}
