@@ -59,16 +59,32 @@
       <div class="ma__header__nav-container">
         <div class="ma__header__nav-search">
           <section class="ma__header-search">
-            <form action="#" class="js-header-search-form">
-              <label for="header-search" class="ma__header-search__label">Search</label>
-              <input id="header-search" class="ma__header-search__input" placeholder="What can we help you find?" type="text">
-              <button type="submit" class="ma__button-search">
-                <span>Search</span>
-                <svg role="img" class="ma__button-search__icon">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/{{directory}}/images/svg-sprite.svg#search"></use>
-                </svg>
-              </button>
-            </form>
+            <div id="cse-search-form-mobile" style="width: 100%;">Loading</div>
+            <script src="//www.google.com/jsapi" type="text/javascript"></script>
+            <script type="text/javascript">
+              <!--//--><![CDATA[// ><!--
+              /*
+                begin google custom search js embed
+                using Mass.gov custom search engine at cse.google.com
+                v1 code
+               */
+              google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
+              google.setOnLoadCallback(function() {
+                var customSearchOptions = {};
+                var orderByOptions = {};
+                orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+                customSearchOptions['enableOrderBy'] = true;
+                customSearchOptions['orderByOptions'] = orderByOptions;
+                var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
+                customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+                var options = new google.search.DrawOptions();
+                options.enableSearchboxOnly('/search', 'q');
+                options.setAutoComplete(true);
+                customSearchControl.draw('cse-search-form-mobile', options);
+              }, true);
+
+              //--><!]]>
+            </script>
           </section>
         </div><!-- .ma__header__nav-search -->
         <div class="ma__header__main-nav">
@@ -81,17 +97,309 @@
     </nav><!-- ma__header__nav -->
   </header>
 
-
   <div class="pre-content">
-    {{ page.pre_content }}
+    {# {{ page.pre_content }} #}
+    <!-- collage header -->
+    <section class="ma__collage-header">
+      <div class="ma__collage-header__container">
+        <style>
+          #GUID831741781374891 {
+            background-image: url('/{{directory}}/images/placeholder/250x250.png');
+          }
+
+          #GUID831741781374893 {
+            background-image: url('/{{directory}}/images/placeholder/250x250.png');
+          }
+
+          #GUID831741781374892 {
+            background-image: url('/{{directory}}/images/placeholder/250x250.png');
+          }
+
+          @media (min-width: 700px) {
+            #GUID831741781374891 {
+              background-image: url('/{{directory}}/images/placeholder/900x700.png');
+            }
+            #GUID831741781374892 {
+              background-image: url('/{{directory}}/images/placeholder/500x300.png');
+            }
+            #GUID831741781374893 {
+              background-image: url('/{{directory}}/images/placeholder/500x500.png');
+            }
+          }
+        </style>
+        <div class="ma__collage-header__images">
+          <div class="ma__collage-header__image" id="GUID831741781374891" title=""></div>
+          <div class="ma__collage-header__image" id="GUID831741781374892" title=""></div>
+          <div class="ma__collage-header__image" id="GUID831741781374893" title=""></div>
+        </div>
+        <div class="ma__collage-header__content">
+          <div  class="ma__collage-header__title">
+            <h1>Welcome to the Mass.Gov Pilot</h1>
+          </div>
+          <div class="ma__collage-header__details">
+            <h3>We're redesigning this website to make it easier to find the things you need.</h3>
+            <p>This is a big project, so we’re going public bit by bit, right here where you can see it and be a part of it. We hope you’ll explore the new site and provide some feedback so we can keep improving it as we add more information and features.</p>
+
+            <p>Thank you for being a part of this project!</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div><!-- .pre-content -->
 
   <div class="main-content{% if page.sidebar %} main-content--two{% endif %}" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="page-content">
-      {{ page.content }}
-      {{ page.front }}
+      {# {{ page.content }} #}
+      <section class="ma__action-card">
+        <h2 class="ma__action-card__title">Things to Do</h2>
+        <div class="ma__action-card__description">
+          <section class="ma__rich-text">
+            <p>Here you&#039;ll find the pages we redesigned first</p>
+          </section>
+        </div>
+        <div class="ma__action-card__items">
+          <div class="ma__action-card__item js-clickable ma__action-card__item--green">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-pig-bank">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#pig-bank"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Unemployment</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="File for Unemployment">File for Unemployment&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--blue">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-apple">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#apple"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Health &amp; Social Services</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Apply for MassHealth Coverage">Apply for MassHealth Coverage&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-apple">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#apple"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Health &amp; Social Services</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Apply for SNAP Benefits">Apply for SNAP Benefits&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--dark-gray">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-gavel">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#gavel"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Legal &amp; Justice</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Respond to a Jury Duty Summons">Respond to a Jury Duty Summons&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--blue">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-campfire">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#campfire"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">State Parks &amp; Recreation</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Find a State Park">Find a State Park&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--green">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-certificate">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#certificate"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Professional Licensing &amp; Certification</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Apply for a Nursing License">Apply for a Nursing License&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--dark-gray">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-family">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#family"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Family &amp; Children</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Get a Child Support Order">Get a Child Support Order&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-id-card">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#id-card"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Recreational Licenses &amp; Permits</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Buy a Freshwater Fishing License">Buy a Freshwater Fishing License&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--green">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-bag-search">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#bag-search"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Finding a Job</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Get a State Job">Get a State Job&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="ma__action-card__item js-clickable ma__action-card__item--blue">
+            <div class="ma__action-card__icon">
+              <svg focusable="false" role="presentation" class="svg-server-rack">
+                <use xlink:href="/{{directory}}/images/svg-sprite.svg#server-rack"></use>
+              </svg>
+            </div>
+            <div class="ma__action-card__content">
+              <span class="ma__action-card__category">Business Services &amp; Resources</span>
+              <h3 class="ma__action-card__link">
+                <a class="js-clickable-link" href="#" title="Register Your Business">Register Your Business&nbsp;<svg focusable="false" role="presentation" class="svg-arrow">
+                  <use xlink:href="/{{directory}}/images/svg-sprite.svg#arrow"></use>
+                </svg>
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section><!-- ma__action-card -->
+      <section class="ma__personal-message">
+        <div class="ma__personal-message__container">
+          <div class="ma__personal-message__image">
+            <img width="250" height="250" alt="Governor Baker" src="/{{directory}}/images/placeholder/250x250.png" />
+          </div>
+          <div class="ma__personal-message__content">
+            <h2 class="ma__personal-message__title">A Message from Governor Baker</h2>
+            <section class="ma__rich-text"><p>"Information technology is an important priority for this administration and our ability to provide secure essential services and execute projects in an efficient and fiscally responsible manner is key to a better state government for Massachusetts. This is an important step that not only addresses some of the problems we have, but is an essential way forward to a better future."</p></section>
+          </div>
+        </div>
+      </section><!-- ma__personal-message -->
+      {{ page.front_latest }}
+      {{ page.front_5050 }}
+
+      <section class="ma__feedback-form" id="GUID8317417813234325">
+        <style>
+          #GUID8317417813234325 {
+            background-image: url('/{{ directory }}/images/placeholder/800x400.png');
+          }
+
+          @media (min-width: 801px) {
+            #GUID8317417813234325 {
+              background-image: url('/{{ directory }}/images/placeholder/1600x600-lighthouse-blur.jpg');
+            }
+          }
+        </style>
+        <div class="ma__feedback-form__overlay">
+          <div class="ma__feedback-form__container">
+            <header class="ma__feedback-form__header">
+              <h2 class="ma__feedback-form__title">Have Feedback for Us?</h2>
+              <p class="ma__feedback-form__description">Mass.gov is for you, and we want to know what you think about it.</p>
+            </header>
+            <form action="#">
+              <div class="ma__feedback-form__name">
+                <label for="text-input">Your Name*</label>
+                <input class="js-is-required" name="text-input" id="text-input" type="text" placeholder="" data-type="text" />        </div>
+              <div class="ma__feedback-form__email">
+                <label for="email-input">Your Email Address*</label>
+                <input class="js-is-required" name="email-input" id="email-input" type="email" placeholder="" data-type="email" />        </div>
+              <div class="ma__feedback-form__feeback">
+                <label for="input-type-textarea">Feedback*</label>
+                <textarea class="js-is-required" id="input-type-textarea" name="input-type-textarea" data-type="text"></textarea>        </div>
+              <div class="ma__feedback-form__type">
+                <section class="ma__select-box js-dropdown">
+                  <label for="color-select" class="ma__select-box__label">Type of Feedback</label>
+                  <div class="ma__select-box__field">
+                    <select
+                      name="color-select"
+                      id="color-select"
+                      class="ma__select-box__select js-dropdown-select">
+                              <option value="design">Visual Feedback</option>
+                              <option value="development">Functionality</option>
+                              <option value="ux">Organization</option>
+                          </select>
+                    <div class="ma__select-box__link">
+                      <span class="js-dropdown-link">Visual Feedback</span>
+                      <span class="ma__select-box__icon"></span></div>
+                  </div>
+                </section>
+              </div>
+              <fieldset class="ma__feedback-form__permission">
+                <legend>Are you interested in helping us test our designs for new sections of Mass.Gov? If so, we will contact you by email with more information.</legend>
+                <span class="ma__input-radio">
+                  <input name="permission" type="radio" value="Yes" id="permission-yes">
+                  <label for="permission-yes"><span>Yes</span></label>
+                </span>
+                <span class="ma__input-radio">
+                  <input name="permission" type="radio" value="No" id="permission-no">
+                  <label for="permission-no"><span>No</span></label>
+                </span>
+              </fieldset>
+              <div class="ma__feedback-form__controls">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </div><!-- .page-content -->
 
     {% if page.sidebar %}
@@ -107,7 +415,12 @@
   </div><!-- .post-content -->
 
   <footer class="ma__footer" role="contentinfo">
-    <button class="ma__footer__back2top js-back2top" style="display: inline-block;">Top</button>
+    <button class="ma__footer__back2top js-back2top is-hidden">
+      <svg focusable="false" role="presentation" class="svg-arrow">
+        <use xlink:href="/{{ directory }}/images/svg-sprite.svg#arrow"></use>
+      </svg>
+      <span>Top</span>
+    </button>
     <div class="ma__footer__container">
       {{ page.footer_navigation }}
       {{ page.footer_info }}

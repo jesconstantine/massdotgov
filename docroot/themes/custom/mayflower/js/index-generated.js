@@ -28,13 +28,21 @@ module.exports = (function (window, document, undefined) {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+var _modulesBack2topJs = require("./modules/back2top.js");
+
+var _modulesBack2topJs2 = _interopRequireDefault(_modulesBack2topJs);
+
+var _modulesClickableJs = require("./modules/clickable.js");
+
+var _modulesClickableJs2 = _interopRequireDefault(_modulesClickableJs);
+
 var _modulesDropdownJs = require("./modules/dropdown.js");
 
 var _modulesDropdownJs2 = _interopRequireDefault(_modulesDropdownJs);
 
-var _modulesBack2topJs = require("./modules/back2top.js");
+var _modulesKeywordSearchJs = require("./modules/keywordSearch.js");
 
-var _modulesBack2topJs2 = _interopRequireDefault(_modulesBack2topJs);
+var _modulesKeywordSearchJs2 = _interopRequireDefault(_modulesKeywordSearchJs);
 
 var _modulesMainNavJs = require("./modules/mainNav.js");
 
@@ -43,6 +51,10 @@ var _modulesMainNavJs2 = _interopRequireDefault(_modulesMainNavJs);
 var _modulesMobileNavJs = require("./modules/mobileNav.js");
 
 var _modulesMobileNavJs2 = _interopRequireDefault(_modulesMobileNavJs);
+
+var _modulesScrollAnchorsJs = require("./modules/scrollAnchors.js");
+
+var _modulesScrollAnchorsJs2 = _interopRequireDefault(_modulesScrollAnchorsJs);
 
 var _modulesSiteSettingsJs = require("./modules/siteSettings.js");
 
@@ -56,7 +68,7 @@ var _modulesZoomControlsJs = require("./modules/zoomControls.js");
 
 var _modulesZoomControlsJs2 = _interopRequireDefault(_modulesZoomControlsJs);
 
-},{"./modules/back2top.js":3,"./modules/dropdown.js":4,"./modules/mainNav.js":5,"./modules/mobileNav.js":6,"./modules/siteSettings.js":7,"./modules/utilNav.js":8,"./modules/zoomControls.js":9}],3:[function(require,module,exports){
+},{"./modules/back2top.js":3,"./modules/clickable.js":4,"./modules/dropdown.js":5,"./modules/keywordSearch.js":6,"./modules/mainNav.js":7,"./modules/mobileNav.js":8,"./modules/scrollAnchors.js":9,"./modules/siteSettings.js":10,"./modules/utilNav.js":11,"./modules/zoomControls.js":12}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -64,16 +76,33 @@ Object.defineProperty(exports, '__esModule', {
 });
 
 exports['default'] = (function (window, document, $, undefined) {
+  var $footer = $('.js-footer'),
+      visibleThreshold = 250,
+      staticThreshold = 50;
 
   $(".js-back2top").each(function () {
     var $el = $(this);
 
-    if ($('body').height() >= 2000) {
-      $el.fadeIn();
-    }
+    $el.on('click', function (e) {
+      e.preventDefault();
+      try {
+        $("html, body").stop(true, true).animate({ scrollTop: 0 }, '750');
+      } catch (e) {
+        $('body').scrollTop(0);
+      }
+      return false;
+    });
 
-    $el.on('click', function () {
-      $("html, body").stop(true, true).animate({ scrollTop: 0 }, '750');
+    $(window).on('scroll', function () {
+      // if we've exceeded the threshold of scrolling
+      // from the top, show control
+      var scrollTop = $(window).scrollTop();
+
+      if (scrollTop > visibleThreshold) {
+        $el.removeClass('is-hidden');
+      } else {
+        $el.addClass('is-hidden');
+      }
     });
   });
 })(window, document, jQuery);
@@ -82,6 +111,37 @@ exports['default'] = (function (window, document, $, undefined) {
 module.exports = exports['default'];
 
 },{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+exports['default'] = (function (window, document, $, undefined) {
+  $('.js-clickable').each(function () {
+    // if the this is clicked
+    $(this).click(function (event) {
+      event.preventDefault();
+
+      var $el = $(this).find('.js-clickable-link').first();
+      // find the destination
+      var dest = $el.attr("href");
+      // if the target attribute exists
+      if ("_blank" === $el.attr("target")) {
+        // launch new tab/window
+        window.open(dest);
+      } else {
+        // otherwise redirect to a new page
+        window.location = dest;
+      }
+    });
+  });
+})(window, document, jQuery);
+
+;
+module.exports = exports['default'];
+
+},{}],5:[function(require,module,exports){
 // ****** basic custom select that uses mobile select keyboard ******
 "use strict";
 
@@ -113,7 +173,34 @@ if (null !== dropdownMenu) {
   }
 }
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+exports['default'] = (function (window, document, $, undefined) {
+
+  $('.js-keyword-search').each(function () {
+    var $el = $(this),
+        $form = $el.find('form');
+
+    $form.on('submit', function (e) {
+      e.preventDefault();
+      $el.addClass('is-dirty');
+    });
+
+    $form.on('reset', function () {
+      $el.removeClass('is-dirty');
+    });
+  });
+})(window, document, jQuery);
+
+;
+module.exports = exports['default'];
+
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -227,7 +314,7 @@ exports["default"] = (function (window, document, $, undefined) {
 ;
 module.exports = exports["default"];
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 // ****** Menu button ******
 "use strict";
 
@@ -253,7 +340,175 @@ if (null !== searchForm) {
   });
 }
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+exports['default'] = (function (window, document, $, undefined) {
+
+  $(".js-scroll-anchors").each(function () {
+    var $el = $(this),
+        $elParent = $el.parent().css('position') === 'relative' ? $el.parent() : $el.parent().offsetParent(),
+        elHeight = undefined,
+        headerBuffer = undefined,
+        windowSize = undefined,
+        lowerLimit = undefined,
+        upperLimit = undefined,
+        debounceTimer = undefined,
+        activeClass = "is-active",
+        activeAnchor = 0,
+        anchors = [],
+        numAnchors = 0,
+        isMobile = false,
+        mobileBreakpoint = 780,
+        // match CSS breakpoint
+    linkScrolling = false;
+
+    setVariables();
+
+    // update variables one more time to catch any post page load changes
+    window.setTimeout(function () {
+      setVariables();
+    }, 1000);
+
+    $el.find('a').on('click', function (e) {
+      e.preventDefault();
+
+      // is the menu closed on mobile
+      if (!$el.hasClass('is-open') && isMobile) {
+        // just show the menu
+        $el.addClass('is-open');
+        return;
+      }
+
+      // find the location of the desired link and scroll the page
+      var hash = this.hash,
+          // TODO try with a span tag
+      position = $(hash).offset().top;
+
+      // prevent the scroll event for updating active links
+      linkScrolling = true;
+      activeAnchor = $(this).index() - 1;
+
+      $("html, body").stop(true, true).animate({ scrollTop: position }, '750', function () {
+        linkScrolling = false;
+      });
+
+      // remove active flag from other links
+      $el.find('.' + activeClass).removeClass(activeClass);
+      // add active flag to this link
+      $(this).addClass(activeClass);
+      // close the menu
+      $el.removeClass('is-open');
+    });
+
+    $el.find(".js-scroll-anchors-toggle").on('click', function () {
+      $el.toggleClass('is-open');
+    });
+
+    // make the links sticky
+    $(window).resize(function () {
+      if (typeof debounceTimer === "number") {
+        window.clearTimeout(debounceTimer);
+      }
+      debounceTimer = window.setTimeout(function () {
+        setVariables();
+        setPosition();
+        activateLink();
+      }, 300);
+    });
+
+    $(window).scroll(function () {
+      activateLink();
+      setPosition();
+    });
+
+    function setVariables() {
+      elHeight = $el.outerHeight(true);
+      windowSize = $(window).innerWidth();
+      upperLimit = $elParent.offset().top;
+
+      if (windowSize <= mobileBreakpoint) {
+        headerBuffer = $('.js-sticky-header').height() || 0;
+        upperLimit -= headerBuffer;
+      }
+
+      lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
+
+      // locate the position of all of the anchor targets
+      anchors = new Array();
+      $el.find('a').each(function (i, e) {
+        var hash = this.hash,
+            position = $(hash).offset().top;
+
+        anchors[i] = { hash: hash, position: position };
+      });
+
+      // record the number of anchors for performance
+      numAnchors = anchors.length;
+    }
+
+    function setPosition() {
+      var windowTop = $(window).scrollTop();
+
+      if (!isMobile && windowSize <= mobileBreakpoint) {
+        $elParent.css({ 'paddingTop': elHeight });
+        isMobile = true;
+      }
+
+      if (isMobile && windowSize > mobileBreakpoint) {
+        $elParent.removeAttr('style');
+        isMobile = false;
+      }
+
+      if (windowTop <= upperLimit) {
+        $el.attr('data-sticky', 'top');
+        $elParent.removeAttr('style');
+      } else if (windowTop < lowerLimit && windowTop > upperLimit) {
+        $el.attr('data-sticky', 'middle');
+      } else if (windowTop >= lowerLimit) {
+        $el.attr('data-sticky', 'bottom');
+      }
+    }
+
+    function activateLink() {
+      // do we have more than one anchor
+      if (numAnchors < 2 || linkScrolling) {
+        return;
+      }
+
+      // get the current scroll position and offset by half the view port
+      var windowTop = $(window).scrollTop() + window.innerHeight / 3;
+      // is there a prev target
+      // and
+      // is the current scroll position above the prev target
+      if (activeAnchor > 0 && windowTop < anchors[activeAnchor - 1].position) {
+        // make the prev link active
+        --activeAnchor;
+      }
+
+      // is there a next target
+      // and
+      // is the current scroll position below the next target
+      if (activeAnchor < numAnchors - 1 && windowTop > anchors[activeAnchor + 1].position) {
+        // make the next link active
+        ++activeAnchor;
+      }
+
+      // move the active flag
+      $el.find('.' + activeClass).removeClass(activeClass);
+      $el.find('a').eq(activeAnchor).addClass(activeClass);
+    }
+  });
+})(window, document, jQuery);
+
+;
+module.exports = exports['default'];
+
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -331,7 +586,7 @@ exports['default'] = (function (window, document, $, undefined) {
 ;
 module.exports = exports['default'];
 
-},{"../helpers/cookies.js":1}],8:[function(require,module,exports){
+},{"../helpers/cookies.js":1}],11:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -400,7 +655,7 @@ exports["default"] = (function (window, document, $, undefined) {
 ;
 module.exports = exports["default"];
 
-},{}],9:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {

@@ -16,6 +16,7 @@ global-js:
     js/index-generated.js: {}
   dependencies:
     - core/jquery
+    - mayflower/mass-modernizr
 
 
 mass-modernizr:

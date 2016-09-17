@@ -17,7 +17,8 @@ regions:
   secondary_menu: Secondary menu
   pre_content: Pre content
   content: Content
-  front: Front Page Blocks
+  front_latest: Front Page Latest News
+  front_5050: Front Page 50/50 Split Blocks
   sidebar: Sidebar
   post_content: Post content
   footer_info: Footer information
