@@ -12,7 +12,6 @@ These instructions will get you a copy of the project up and running on your loc
 - Sign up for a free [acquia cloud account](https://accounts.acquia.com/user?site=insight#action=user-register)
 - Membership to Acquia Cloud Team Subscription (see Jes)
 - Github account
-- Membership to Mass Digital Services FREND bitbucket team (see Jes)
 - Create SSH key ([instructions](https://docs.acquia.com/dev-desktop/keygen))
 - Add SSH key to your Acquia Cloud account ([instructions](https://docs.acquia.com/cloud/ssh/enable/add-key)) 
 - Add SSH key to your github ([instructions](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)) account
