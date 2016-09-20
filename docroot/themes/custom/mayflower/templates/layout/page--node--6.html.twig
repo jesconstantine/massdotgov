@@ -275,9 +275,6 @@
               background-color: #FFFFFF;
             }
             */
-            .gsc-completion-title {
-              color: #444444;
-            }
             .gsc-completion-snippet {
               color: #333333;
             }
@@ -311,9 +308,9 @@
                display: none;
             }
             /* results count */
-             .gcs-result-info {
+            .gsc-result-info {
               display: none;
-             }
+            }
 
             /* promoted result container */
             .gsc-webResult.gsc-result.gsc-promotion,
@@ -323,25 +320,51 @@
                 background-color: #43956f;
                 color: #fff;
                 padding: 2em;
-                margin-top: 0;
+                min-height: 150px;
                 display: block;
                 margin: 1em;
+                box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
             }
+
 
             @media (min-width: 801px) {
               .gsc-webResult.gsc-result.gsc-promotion,
               .gsc-webResult.gsc-result.gsc-promotion:hover {
-                display: inline-block;
+                display: block;
+                float: left;
+                margin-top: 1em;
+                margin-bottom: 4em;
                 margin-right: 1.6129%;
-                padding: 3em;
+                height: 200px;
                 width: 30.25806%;
+                position: relative; /* need for vertical center child below */
+              }
+
+              /* vertically center promotion content on desktop */
+              .gs-promotion.gs-result {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                max-width: 85%;
+              }
+
+              .gsc-webResult.gsc-result:not(.gsc-promotion) {
+                clear: left;
+                margin-top: 2em;
               }
             }
 
             /* promoted result link */
-            .gs-promotion a.gs-title:link, .gs-promotion a.gs-title:link *, .gs-promotion .gs-snippet a:link {
-              font-size: 20px;
-              font-weight: 700;
+            .gs-promotion a.gs-title:link,
+              .gs-promotion a.gs-title:visited,
+              .gs-promotion a.gs-title:link *,
+              .gs-promotion a.gs-title:visited *,
+              .gs-promotion .gs-snippet a:link,
+              .gs-promotion .gs-snippet a:visited {
+              font-size: 28px;
+              font-size: 1.75rem;
+              line-height: 1.214287;
+              font-weight: 500;
               font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
               color: #fff;
               border-bottom: 3px solid transparent;
@@ -359,6 +382,7 @@
                 overflow: visible;
                 min-height: 2em;
                 height: auto;
+                margin-bottom: .5em;
             }
 
             /* promoted link hover */
@@ -374,6 +398,16 @@
             /* hide promoted visible url */
             .gs-promotion div.gs-visibleUrl-long {
               display: none;
+            }
+
+            /* promoted result snippet (description)*/
+            .gs-promotion .gs-snippet, .gs-promotion .gs-title .gs-promotion-title-right, .gs-promotion .gs-title .gs-promotion-title-right * {
+              color: #f2f2f2;
+              font-size: 14px;
+              font-size: 1rem;
+              line-height: 1.214287;
+              font-weight: 200;
+              font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
             }
 
             /* standard result container */
