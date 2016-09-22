@@ -1,0 +1,35 @@
+uuid: 2cdec46d-8b11-481f-9d7a-70ba5d9db381
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:google_cse_search_form_block:5088b1e0-30ec-4a7d-b76d-19c706b497c5'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - mayflower
+third_party_settings:
+  block_class:
+    classes: ''
+id: csesearchform_2
+theme: mayflower
+region: content
+weight: null
+provider: null
+plugin: 'block_content:5088b1e0-30ec-4a7d-b76d-19c706b497c5'
+settings:
+  id: 'block_content:5088b1e0-30ec-4a7d-b76d-19c706b497c5'
+  label: 'CSE Search Form'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
+    context_mapping: {  }
