@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for the search form block.
+ * Theme override for the search form block -- for search results page only.
  *
  * Available variables:
  * - plugin_id: The ID of the block implementation.
@@ -38,6 +38,8 @@
 <div{{ attributes.addClass(classes) }}>
   <section class='ma__content-search'>
     {% block content %}
+      <!-- search form container -->
+      {# JS lives in search results page template: layout/page--node--6 #}
       <div id="cse-search-form" style="width: 100%;">Loading</div>
       <script src="//www.google.com/jsapi" type="text/javascript"></script>
       <script type="text/javascript">
@@ -300,8 +302,6 @@
         .gsq_a span {
           color: #535353;
           font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
-
-
         }
 
         /* autocomplete promotion container table */
