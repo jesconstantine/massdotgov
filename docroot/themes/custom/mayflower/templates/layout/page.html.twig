@@ -102,7 +102,8 @@
   <div class="main-content{% if page.sidebar %} main-content--two{% endif %}" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="page-content">
+    <!-- TODO: Use proper page container, not footer container... -->
+    <div class="page-content ma__footer__container">
       {{ page.content }}
     </div><!-- .page-content -->
 
