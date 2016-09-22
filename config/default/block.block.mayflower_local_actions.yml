@@ -9,7 +9,7 @@ _core:
 id: mayflower_local_actions
 theme: mayflower
 region: content
-weight: -5
+weight: -11
 provider: null
 plugin: local_actions_block
 settings:

@@ -11,7 +11,7 @@ _core:
 id: mayflower_messages
 theme: mayflower
 region: pre_content
-weight: -5
+weight: -11
 provider: null
 plugin: system_messages_block
 settings:

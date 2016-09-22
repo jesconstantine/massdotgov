@@ -15,8 +15,8 @@ third_party_settings:
     classes: ''
 id: csesearchform_2
 theme: mayflower
-region: content
-weight: null
+region: pre_content
+weight: -8
 provider: null
 plugin: 'block_content:5088b1e0-30ec-4a7d-b76d-19c706b497c5'
 settings:
