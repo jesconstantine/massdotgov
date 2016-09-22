@@ -31,12 +31,12 @@
     'block',
     'block-search',
     'container-inline',
-    'ma__header__search',
+    'ma__content__search',
     'js-header-search-menu',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  <section class='ma__header-search'>
+  <section class='ma__content-search'>
     {% block content %}
       <div id="cse-search-form" style="width: 100%;">Loading</div>
       <script src="//www.google.com/jsapi" type="text/javascript"></script>
@@ -95,12 +95,12 @@
         }
         @media (max-width: 620px) {
           .cse form.gsc-search-box,
-          .ma__header__container form.gsc-search-box,
-          .ma__header__container .gsc-search-box {
+          .ma__content__container form.gsc-search-box,
+          .ma__content__container .gsc-search-box {
             display: none;
           }
 
-          .ma__header__search .ma__header-search .ma__button-search {
+          .ma__content__search .ma__content-search .ma__button-search {
             display: inline-block;
             position: static;
             -webkit-transition: opacity .4s;
@@ -110,7 +110,7 @@
         }
 
         @media (min-width: 621px) {
-          .ma__header__search .ma__header-search .ma__button-search {
+          .ma__content__search .ma__content-search .ma__button-search {
             display: none;
           }
         }
@@ -145,7 +145,7 @@
         }
         table.gsc-search-box td.gsc-search-button {
           padding: 0;
-          width: 15% !important;
+          /*width: 15% !important;*/
         }
         input.gsc-search-button {
             display: block;
@@ -180,13 +180,97 @@
 
         /* mobile nav search form styles */
         @media (max-width: 620px) {
-          .ma__header__nav-search .ma__header-search input.gsc-search-button {
+          .ma__content__nav-search .ma__content-search input.gsc-search-button {
             padding-right: 12px;
           }
 
-          .ma__header__nav-search .ma__header-search table.gsc-search-box input.gsc-input {
+          .ma__content__nav-search .ma__content-search table.gsc-search-box input.gsc-input {
             padding-right: 45px;
             padding-left: 10px;
+          }
+        }
+
+        /* augmented search styles from .ma__header__search, copied from mayflower index-generated.css */
+
+        /* block container class */
+        .ma__content__search {
+          display: inline-block;
+          text-align: center;
+          vertical-align: middle;
+          padding-top: 100px;
+          padding-top: 3em;
+          width: 100%; }
+          /*@media (min-width: 621px) {
+            .ma__content__search {
+              width: 66.12903%; } } */
+          @media (min-width: 1100px) {
+            .ma__content__search {
+              padding-top: 200px;
+              padding-top: 6em; } }
+
+        /* block content section class */
+        .ma__content-search {
+          display: inline-block;
+          max-width: 1000px;
+          position: relative;
+          width: calc(100% - 100px); }
+          .ma__content-search__label {
+            position: absolute;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0; }
+          .ma__content-search__input {
+            font-size: 16px;
+            font-size: 1rem;
+            height: 46px;
+            padding-right: 128px;
+            padding-left: 17px;
+            width: 100%; }
+            @media (max-width: 620px) {
+              .ma__content__search .ma__content-search__input {
+                display: none; } }
+            @media (max-width: 700px) {
+              .ma__content-search__input {
+                padding-right: 17px; } }
+          .ma__content-search .ma__button-search {
+            display: block;
+            height: 46px;
+            padding-top: 0;
+            padding-bottom: 0;
+            position: absolute;
+            right: 0;
+            top: 0; }
+            .ma__content__nav-search .ma__content-search .ma__button-search {
+              border: none;
+              border-left: 2px solid; }
+            @media (max-width: 620px) {
+              .ma__content__search .ma__content-search .ma__button-search {
+                display: inline-block;
+                position: static;
+                -webkit-transition: opacity .4s;
+                transition: opacity .4s;
+                vertical-align: middle; }
+                .ma__content__search .ma__content-search .ma__button-search:before {
+                  content: "";
+                  display: inline-block;
+                  height: 100%;
+                  margin-right: -1px;
+                  vertical-align: middle;
+                  width: 1px; }
+                .show-menu .ma__content__search .ma__content-search .ma__button-search {
+                  opacity: 0; } }
+            @media (min-width: 621px) and (max-width: 700px) {
+              .ma__content__search .ma__content-search .ma__button-search span {
+                display: none; } }
+
+        /* reduce vertical spacing above linked list container for search results */
+        .ma__link-list {
+          @media (max-width: 620px) {
+            padding-top: 20px;
           }
         }
 
@@ -247,4 +331,4 @@
     </div>
     {% endblock %}
   </section>
-</div><!-- .ma__header__search -->
+</div><!-- .ma__content__search -->
