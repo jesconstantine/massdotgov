@@ -106,11 +106,22 @@
       {# {{ page.content }} #}
       <section class="ma__link-list">
         <div class="ma__link-list__container">
+          <!-- search results container -->
           <div id="cse" style="width: 100%;">Loading</div>
-            <script src="//www.google.com/jsapi" type="text/javascript"></script><script type="text/javascript">
+            <!-- common js for search form and results for search results page -->
+            <script src="//www.google.com/jsapi" type="text/javascript"></script>
+            <script type="text/javascript">
             <!--//--><![CDATA[// ><!--
 
+            /**
+             * load the Google search module with google.load(module, version), where:
+             * module calls the specific API module to use (search)
+             * version is the version number of the module you wish to load (1)
+             * options object with english language and minimalist theme loaded
+             */
             google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
+
+            // set up search boxes with autocomplete then draw them
             google.setOnLoadCallback(function() {
               var customSearchOptions = {};
               // var orderByOptions = {};
@@ -120,9 +131,19 @@
               var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
               customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
               var options = new google.search.DrawOptions();
-              options.enableSearchResultsOnly();
+
+              // draw the custom search control with .draw(selector, options)
+              // search form is a cse search form custom block placed in the pre-conent region for this node only
+              // see templates/block/block--csesearchform-2
+              options.setSearchFormRoot('cse-search-form');
+
+              // enable autocomplete
               options.setAutoComplete(true);
+
+              // draw the search results with .draw(selector, options)
               customSearchControl.draw('cse', options);
+
+              // parse url params
               function parseParamsFromUrl() {
                 var params = {};
                 var parts = window.location.search.substr(1).split('&');
@@ -135,8 +156,12 @@
                 }
                 return params;
               }
+
+              // get the url params
               var urlParams = parseParamsFromUrl();
               var queryParamName = 'q';
+
+              // if the search param is in the query string, populate the search form text input with it
               if (urlParams[queryParamName]) {
                 customSearchControl.execute(urlParams[queryParamName]);
               }
