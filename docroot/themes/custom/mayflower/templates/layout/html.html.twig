@@ -45,5 +45,12 @@
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+
+    <!-- TODO: this is only for the demo on 9/26. Remove once we have real fonts. -->
+    <script src="https://use.typekit.net/mhx6yyd.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <style>
+      * { font-family: 'proxima-nova' !important; }
+    </style>
   </body>
 </html>
