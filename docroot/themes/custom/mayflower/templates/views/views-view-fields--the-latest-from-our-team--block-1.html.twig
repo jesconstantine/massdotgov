@@ -36,7 +36,12 @@
 #}
 
 <div class="ma__blog-feed__image-wrapper">
-    {{ fields.field_featured_image.content }}
+    <!-- TODO move the placeholder business 'up the stack' & into the drupal field default -->
+     {% if fields.field_featured_image.content|render is not empty %}
+        {{ fields.field_featured_image.content }}
+      {% else %}
+        <img alt='placeholder image' src='//placehold.it/320x180'>
+      {% endif %}
     <span class="ma__blog-feed__date">{{fields.created.content}}</span>
 </div>
 <div class="ma__blog-feed__content">
