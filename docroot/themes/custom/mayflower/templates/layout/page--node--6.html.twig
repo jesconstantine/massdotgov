@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a single page.
+ * Theme override to display a single page. [Search Results Page]
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.html.twig template in this directory.
@@ -106,11 +106,22 @@
       {# {{ page.content }} #}
       <section class="ma__link-list">
         <div class="ma__link-list__container">
+          <!-- search results container -->
           <div id="cse" style="width: 100%;">Loading</div>
-            <script src="//www.google.com/jsapi" type="text/javascript"></script><script type="text/javascript">
+            <!-- common js for search form and results for search results page -->
+            <script src="//www.google.com/jsapi" type="text/javascript"></script>
+            <script type="text/javascript">
             <!--//--><![CDATA[// ><!--
 
+            /**
+             * load the Google search module with google.load(module, version), where:
+             * module calls the specific API module to use (search)
+             * version is the version number of the module you wish to load (1)
+             * options object with english language and minimalist theme loaded
+             */
             google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
+
+            // set up search boxes with autocomplete then draw them
             google.setOnLoadCallback(function() {
               var customSearchOptions = {};
               // var orderByOptions = {};
@@ -120,9 +131,19 @@
               var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
               customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
               var options = new google.search.DrawOptions();
-              options.enableSearchResultsOnly();
+
+              // draw the custom search control with .draw(selector, options)
+              // search form is a cse search form custom block placed in the pre-conent region for this node only
+              // see templates/block/block--csesearchform-2
+              options.setSearchFormRoot('cse-search-form');
+
+              // enable autocomplete
               options.setAutoComplete(true);
+
+              // draw the search results with .draw(selector, options)
               customSearchControl.draw('cse', options);
+
+              // parse url params
               function parseParamsFromUrl() {
                 var params = {};
                 var parts = window.location.search.substr(1).split('&');
@@ -135,8 +156,12 @@
                 }
                 return params;
               }
+
+              // get the url params
               var urlParams = parseParamsFromUrl();
               var queryParamName = 'q';
+
+              // if the search param is in the query string, populate the search form text input with it
               if (urlParams[queryParamName]) {
                 customSearchControl.execute(urlParams[queryParamName]);
               }
@@ -304,6 +329,18 @@
                 custom override
              ------------------------------ */
 
+            /* borrow + edit container scaffolding form Mayflower link-list */
+            .ma__link-list {
+              padding: 20px 0;
+            }
+
+            @media (min-width: 801px) {
+              .ma__link-list {
+                padding: 60px 0;
+              }
+            }
+
+            /* remove results header */
             .gsc-resultsHeader, .gcsc-branding {
                display: none;
             }
@@ -326,14 +363,13 @@
                 box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
             }
 
-
             @media (min-width: 801px) {
               .gsc-webResult.gsc-result.gsc-promotion,
               .gsc-webResult.gsc-result.gsc-promotion:hover {
                 display: block;
                 float: left;
                 margin-top: 1em;
-                margin-bottom: 4em;
+                margin-bottom: 8em;
                 margin-right: 1.6129%;
                 height: 200px;
                 width: 30.25806%;
@@ -347,7 +383,14 @@
                 transform: translateY(-50%);
                 max-width: 85%;
               }
+            }
 
+            /* first result after promoted results */
+            .gsc-webResult.gsc-result:not(.gsc-promotion) {
+              margin-top: 4em;
+            }
+
+            @media (min-width: 801px) {
               .gsc-webResult.gsc-result:not(.gsc-promotion) {
                 clear: left;
                 margin-top: 2em;

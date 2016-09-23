@@ -1,4 +1,4 @@
-uuid: d30d1a0a-1e76-4b1e-b798-7a09c39d7a10
+uuid: 2cdec46d-8b11-481f-9d7a-70ba5d9db381
 langcode: en
 status: true
 dependencies:
@@ -13,10 +13,10 @@ dependencies:
 third_party_settings:
   block_class:
     classes: ''
-id: csesearchform
+id: csesearchform_2
 theme: mayflower
-region: header
-weight: -9
+region: pre_content
+weight: -8
 provider: null
 plugin: 'block_content:5088b1e0-30ec-4a7d-b76d-19c706b497c5'
 settings:
@@ -31,5 +31,5 @@ visibility:
   request_path:
     id: request_path
     pages: /search
-    negate: true
+    negate: false
     context_mapping: {  }
