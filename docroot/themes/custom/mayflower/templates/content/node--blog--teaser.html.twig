@@ -73,6 +73,18 @@
  */
 #}
 
+<style>
+/* since we're not using the entire ma__blog-feed component
+ * and since we're altering the layout a bit, need to add some inline
+ * styles for demo
+ */
+  @media (min-width: 621px) {
+    .ma__blog-feed__image-wrapper {
+      max-width: 25%;
+    }
+  }
+</style>
+
 <article{{ attributes.addClass("ma__blog-feed__item") }} style="width: 100%; padding-bottom: 20px;">
   <div class="ma__blog-feed__image-wrapper">
     <a href="#" target="_blank">
