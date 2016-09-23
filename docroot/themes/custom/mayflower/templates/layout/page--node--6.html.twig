@@ -383,7 +383,14 @@
                 transform: translateY(-50%);
                 max-width: 85%;
               }
+            }
 
+            /* first result after promoted results */
+            .gsc-webResult.gsc-result:not(.gsc-promotion) {
+              margin-top: 4em;
+            }
+
+            @media (min-width: 801px) {
               .gsc-webResult.gsc-result:not(.gsc-promotion) {
                 clear: left;
                 margin-top: 2em;
