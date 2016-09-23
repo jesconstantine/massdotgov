@@ -73,6 +73,18 @@
  */
 #}
 
+<style>
+/* since we're not using the entire ma__blog-feed component
+ * and since we're altering the layout a bit, need to add some inline
+ * styles for demo
+ */
+  @media (min-width: 621px) {
+    .ma__blog-feed__image-wrapper {
+      max-width: 25%;
+    }
+  }
+</style>
+
 <article{{ attributes.addClass("ma__blog-feed__item") }} style="width: 100%; padding-bottom: 20px;">
   <div class="ma__blog-feed__image-wrapper">
     <a href="#" target="_blank">
@@ -83,7 +95,9 @@
         <img alt='placeholder image' src='//placehold.it/320x180'>
       {% endif %}
       {# <img src="/assets/images/placeholder/320x180.png" alt="something about this image" width="320" height="180"> #}
-      <span class="ma__blog-feed__date">{{date}}</span>
+
+      {# use twig's date filter to format the node created date: 08.15.16 #}
+      <span class="ma__blog-feed__date">{{ node.getCreatedTime()|date('m.d.y') }}</span>
     </a>
   </div>
   <div class="ma__blog-feed__content">
