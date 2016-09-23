@@ -27,7 +27,7 @@ content:
   field_featured_image:
     type: image
     weight: 0
-    label: above
+    label: hidden
     settings:
       image_style: blog_featured_image_thumbnail
       image_link: content
