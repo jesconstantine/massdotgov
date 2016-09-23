@@ -83,7 +83,9 @@
         <img alt='placeholder image' src='//placehold.it/320x180'>
       {% endif %}
       {# <img src="/assets/images/placeholder/320x180.png" alt="something about this image" width="320" height="180"> #}
-      <span class="ma__blog-feed__date">{{date}}</span>
+
+      {# use twig's date filter to format the node created date: 08.15.16 #}
+      <span class="ma__blog-feed__date">{{ node.getCreatedTime()|date('m.d.y') }}</span>
     </a>
   </div>
   <div class="ma__blog-feed__content">
