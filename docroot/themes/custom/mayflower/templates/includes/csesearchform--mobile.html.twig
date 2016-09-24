@@ -1,0 +1,238 @@
+{#
+/**
+ * @file
+ * Partial file for mobile search form container markup + js as well as
+ * common css for both header and mobile nav search forms.
+ */
+#}
+{%
+  set classes = [
+    'ma__header__nav-search',
+    'js-header-search-menu',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <section class='ma__header-search'>
+    {% block content %}
+      <div id="cse-search-form-mobile" style="width: 100%;">Loading</div>
+      <script src="//www.google.com/jsapi" type="text/javascript"></script>
+      <script type="text/javascript">
+        <!--//--><![CDATA[// ><!--
+        /*
+          Begin google custom search js embed - MOBILE FORM ONLY
+          Using Mass.gov custom search engine at cse.google.com
+          api v1 js code
+         */
+
+        /*
+         * load the google custom search module
+         * - with english language
+         * - with minimalist theme
+         */
+        google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
+
+        google.setOnLoadCallback(function() {
+          var cx = '010551267445528504028:ivl9x2rf5e8'; // search engine id
+
+          /*
+           * Set custom search options
+           * See: https://developers.google.com/custom-search/docs/js/cselement-reference#opt_options
+           */
+          var customSearchOptions = {};
+
+          /*
+           * Creates an instance of the CustomSearchControl object,
+           * which represents a Custom Search Element. Calling this
+           * constructor initializes the Custom Search service and UI.
+           */
+          var customSearchControl = new google.search.CustomSearchControl(cx, customSearchOptions);
+
+          /*
+           * Customize search control with available methods
+           * See: https://developers.google.com/custom-search/docs/js/cselement-reference#customsearchcontrol-methods
+          */
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+
+          /*
+           * Draw mobile search form with draw options
+           * See .draw() at: https://developers.google.com/custom-search/docs/js/cselement-reference#csedrawoptions-el
+          */
+          var mobileOptions = new google.search.DrawOptions();
+          mobileOptions.enableSearchboxOnly('/search', 'q');
+          // mobileOptions.setAutoComplete(true);
+          // @TODO:
+          // figure out how to get two autocompletes to load on 1 page
+          // when a query is entered in mobile search, the autocomplete
+          // dropdown appears under the other header nav form
+
+          /*
+           * Displays the search form. Calling this method is the final step
+           * in activating a Custom Search Element object, and it produces the
+           * UI and search containers.
+           */
+          customSearchControl.draw('cse-search-form-mobile', mobileOptions);
+
+        }, true);
+
+        //--><!]]>
+      </script>
+      <!-- /* google custom search styles, overriding minimal theme */ -->
+      <style type="text/css">
+        <!--/*--><![CDATA[/* ><!--*/
+        /* custom orverride */
+        .cse form.gsc-search-box, form.gsc-search-box,
+        .gsc-search-box {
+          margin: 0;
+          padding: 0;
+        }
+        @media (max-width: 620px) {
+          .cse form.gsc-search-box,
+          .ma__header__container form.gsc-search-box,
+          .ma__header__container .gsc-search-box {
+            display: none;
+          }
+
+          .ma__header__search .ma__header-search .ma__button-search {
+            display: inline-block;
+            position: static;
+            -webkit-transition: opacity .4s;
+            transition: opacity .4s;
+            vertical-align: middle;
+          }
+        }
+
+        @media (min-width: 621px) {
+          .ma__header__search .ma__header-search .ma__button-search {
+            display: none;
+          }
+        }
+        table.gsc-search-box {
+          margin: 0;
+        }
+        form.gsc-search-box .gsc-search-box tr {
+          background-color: #F6F6F2;
+          border: none;
+        }
+        table.gsc-search-box tbody td {
+          border: none;
+        }
+        table.gsc-search-box td.gsc-input {
+          padding: 0;
+        }
+        table.gsc-search-box input.gsc-input {
+          font-size: 16px;
+          font-size: 1rem;
+          height: 46px;
+          padding-right: 20px;
+          padding-left: 17px;
+          width: 100%;
+          border: 2px solid #dcdcdc;
+        }
+        table.gsc-search-box input.gsc-input[style] {
+          background: none !important;
+          background-color: #fff !important;
+        }
+        table.gsc-search-box td.gsc-input {
+          padding: 0;
+        }
+        .ma__header-search table.gsc-search-box td.gsc-search-button {
+          padding: 0;
+          width: 14% !important;
+        }
+        input.gsc-search-button {
+            display: block;
+            height: 46px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: 700;
+            font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+            background-color: white;
+            border-radius: 0 !important;
+            color: #43956f;
+            border: 2px solid #dcdcdc;
+            font-size: 12px;
+            font-size: 0.75rem;
+            letter-spacing: .05em;
+            padding: 13px 14px 14px;
+            text-transform: uppercase;
+            -webkit-transition: background-color .4s, color .4s, border .4s, fill .4s;
+            transition: background-color .4s, color .4s, border .4s, fill .4s;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        input.gsc-search-button:hover {
+            background-color: #43956f;
+            border-color: #43956f;
+            color: white;
+        }
+        .gsc-clear-button {
+          display: none;
+        }
+
+        /* mobile nav search form styles */
+        @media (max-width: 620px) {
+          .ma__header__nav-search .ma__header-search input.gsc-search-button {
+            padding-right: 12px;
+          }
+
+          .ma__header__nav-search .ma__header-search table.gsc-search-box input.gsc-input {
+            padding-right: 45px;
+            padding-left: 10px;
+          }
+        }
+
+        /* autocomplete promotions styles */
+        /* autocomplete entry table > row structure
+          <tr class="">
+            <td class="gssb_a " dir="ltr" style="text-align: left;">
+                <div>
+                    <table cellspacing="0" cellpadding="0" class="gsc-completion-promotion-table" style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td valign="top" class="gscsep_a"></td>
+                                <td valign="top">
+                                    <div class="gsc-completion-title">Labor &amp; employment</div>
+                                    <div class="gsc-completion-snippet"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr> */
+
+        /* specificity necessary because we are overriding */
+
+        /* autocomplete entries */
+        .gsq_a span {
+          color: #535353;
+          font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+        }
+
+        /* autocomplete promotion container table */
+        .gsc-completion-container .gsc-completion-promotion-table {
+        }
+
+        /* autocomplete promotion link */
+        .gsc-completion-title {
+          color: #14558f;
+          font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, sans-serif;
+        }
+
+        /* autocomplete promotion description */
+        .gsc-completion-snippet {
+          display: none;
+        }
+
+        /* autocomplete hover style, class applied to parent <tr> */
+        .gsc-completion-selected {
+            background: #dcdcdc;
+        }
+
+
+        /*--><!]]>*/
+      </style>
+    {% endblock %}
+  </section>
+</div><!-- .ma__header__search -->
