@@ -109,6 +109,13 @@
               // disable search results orderby functionality
               customSearchOptions['enableOrderBy'] = false;
 
+              // autocomplete settings
+              var autoCompleteOptions = {
+                maxCompletions: 3
+              };
+              customSearchOptions['autoCompleteOptions'] = autoCompleteOptions;
+
+
               /*
                * Creates an instance of the CustomSearchControl object,
                * which represents a Custom Search Element. Calling this
