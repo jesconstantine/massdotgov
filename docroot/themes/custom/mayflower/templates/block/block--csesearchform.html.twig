@@ -38,10 +38,9 @@
 <div{{ attributes.addClass(classes) }}>
   <section class='ma__header-search'>
     {% block content %}
-      {# common search form js lives in templates/include/
-           block--csesearchform--mobile #}
+      {# desktop header google custom search form. id selector used in API .draw() method at last line of api embed js below #}
       <div id="cse-search-form" style="width: 100%;">Loading</div>
-            <script src="//www.google.com/jsapi" type="text/javascript"></script>
+      <script src="//www.google.com/jsapi" type="text/javascript"></script>
       <script type="text/javascript">
         <!--//--><![CDATA[// ><!--
         /*
