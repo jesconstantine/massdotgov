@@ -142,13 +142,17 @@
                */
               options.setSearchFormRoot('cse-search-form');
 
-              // enable autocomplete (see options above)
+              /*
+               * enable autocomplete (see options above: autoCompleteOptions)
+               */
               options.setAutoComplete(true);
 
               /*
                * Displays the search form. Calling this method is the final
                * step in activating a Custom Search Element object, and it
                * produces the UI and search containers.
+               *
+               * .draw(selector, options)
                */
               customSearchControl.draw('cse', options);
 
