@@ -40,10 +40,14 @@ html {
         position: relative;
         text-align: center; } }
     .ma__header__backto a {
+      font-weight: 500;
+      font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
       background-color: #f6c51b;
-      color: #535353;
+      color: #141414;
       display: inline-block;
-      padding: 10px 5px; }
+      font-size: 16px;
+      font-size: 1rem;
+      padding: 10px; }
       .ma__header__backto a:before {
         border-right: 4px solid;
         border-bottom: 4px solid;
@@ -64,16 +68,20 @@ html {
         width: 10px; }
       @media (min-width: 481px) {
         .ma__header__backto a {
+          font-size: 1.125rem;
+          margin-left: 20px;
           padding: 10px 15px; } }
       .ma__header__backto a:before {
         height: 9px;
         margin-right: .75em;
         margin-top: 0;
         width: 9px; }
+      .ma__header__backto a:hover {
+        padding-top: 18px; }
   .ma__header__container {
     padding-top: 15px;
     padding-bottom: 15px; }
-  .ma__header__search {
+  .ma__header__nav-search, .ma__header__search {
     display: none; }
   @media (min-width: 781px) {
     .ma__header__nav {
