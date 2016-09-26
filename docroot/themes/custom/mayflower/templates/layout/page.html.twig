@@ -54,36 +54,7 @@
         </button>
       </div><!-- .ma__header__button-container -->
       <div class="ma__header__nav-container">
-        <div class="ma__header__nav-search">
-          <section class="ma__header-search">
-            <div id="cse-search-form-mobile" style="width: 100%;">Loading</div>
-            <script src="//www.google.com/jsapi" type="text/javascript"></script>
-            <script type="text/javascript">
-              <!--//--><![CDATA[// ><!--
-              /*
-                begin google custom search js embed
-                using Mass.gov custom search engine at cse.google.com
-                v1 code
-               */
-              google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
-              google.setOnLoadCallback(function() {
-                var customSearchOptions = {};
-                var orderByOptions = {};
-                orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
-                customSearchOptions['enableOrderBy'] = true;
-                customSearchOptions['orderByOptions'] = orderByOptions;
-                var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
-                customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-                var options = new google.search.DrawOptions();
-                options.enableSearchboxOnly('/search', 'q');
-                options.setAutoComplete(true);
-                customSearchControl.draw('cse-search-form-mobile', options);
-              }, true);
-
-              //--><!]]>
-            </script>
-          </section>
-        </div><!-- .ma__header__nav-search -->
+        {% include directory ~ "/templates/includes/csesearchform--mobile.html.twig" %}
         <div class="ma__header__main-nav">
           {{ page.primary_menu }}
         </div><!-- .ma__header__main-nav -->

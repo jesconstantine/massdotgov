@@ -54,36 +54,7 @@
         </button>
       </div><!-- .ma__header__button-container -->
       <div class="ma__header__nav-container">
-        <div class="ma__header__nav-search">
-          <section class="ma__header-search">
-            <div id="cse-search-form-mobile" style="width: 100%;">Loading</div>
-            <script src="//www.google.com/jsapi" type="text/javascript"></script>
-            <script type="text/javascript">
-              <!--//--><![CDATA[// ><!--
-              /*
-                begin google custom search js embed
-                using Mass.gov custom search engine at cse.google.com
-                v1 code
-               */
-              google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
-              google.setOnLoadCallback(function() {
-                var customSearchOptions = {};
-                var orderByOptions = {};
-                orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
-                customSearchOptions['enableOrderBy'] = true;
-                customSearchOptions['orderByOptions'] = orderByOptions;
-                var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
-                customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-                var options = new google.search.DrawOptions();
-                options.enableSearchboxOnly('/search', 'q');
-                options.setAutoComplete(true);
-                customSearchControl.draw('cse-search-form-mobile', options);
-              }, true);
-
-              //--><!]]>
-            </script>
-          </section>
-        </div><!-- .ma__header__nav-search -->
+        {% include directory ~ "/templates/includes/csesearchform--mobile.html.twig" %}
         <div class="ma__header__main-nav">
           {{ page.primary_menu }}
         </div><!-- .ma__header__main-nav -->
@@ -113,37 +84,82 @@
             <script type="text/javascript">
             <!--//--><![CDATA[// ><!--
 
-            /**
-             * load the Google search module with google.load(module, version), where:
-             * module calls the specific API module to use (search)
-             * version is the version number of the module you wish to load (1)
-             * options object with english language and minimalist theme loaded
+            /*
+              Begin google custom search js embed - FORM + RESULTS
+              Using Mass.gov custom search engine at cse.google.com
+              api v1 js code
+             */
+
+            /*
+             * load the google custom search module
+             * - with english language
+             * - with minimalist theme
              */
             google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
 
-            // set up search boxes with autocomplete then draw them
             google.setOnLoadCallback(function() {
+              var cx = '010551267445528504028:ivl9x2rf5e8'; // search engine id
+
+              /*
+               * Set custom search options
+               * See: https://developers.google.com/custom-search/docs/js/cselement-reference#opt_options
+               */
               var customSearchOptions = {};
-              // var orderByOptions = {};
-              // orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+
+              // disable search results orderby functionality
               customSearchOptions['enableOrderBy'] = false;
-              // customSearchOptions['orderByOptions'] = orderByOptions;
-              var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
+
+              // autocomplete settings
+              var autoCompleteOptions = {
+                maxCompletions: 3
+              };
+              customSearchOptions['autoCompleteOptions'] = autoCompleteOptions;
+
+
+              /*
+               * Creates an instance of the CustomSearchControl object,
+               * which represents a Custom Search Element. Calling this
+               * constructor initializes the Custom Search service and UI.
+               */
+              var customSearchControl = new google.search.CustomSearchControl(cx, customSearchOptions);
+
+              /*
+               * Customize search control with available methods
+               * See: https://developers.google.com/custom-search/docs/js/cselement-reference#customsearchcontrol-methods
+              */
               customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+
+              /*
+               * Draw search form with draw options
+               * See .draw() at: https://developers.google.com/custom-search/docs/js/cselement-reference#csedrawoptions-el
+              */
               var options = new google.search.DrawOptions();
 
-              // draw the custom search control with .draw(selector, options)
-              // search form is a cse search form custom block placed in the pre-conent region for this node only
-              // see templates/block/block--csesearchform-2
+              /*
+               * search form is a cse search form custom block placed in the
+               * pre-conent region for this node only
+               * see templates/block/block--csesearchform-2
+               */
               options.setSearchFormRoot('cse-search-form');
 
-              // enable autocomplete
+              /*
+               * enable autocomplete (see options above: autoCompleteOptions)
+               */
               options.setAutoComplete(true);
 
-              // draw the search results with .draw(selector, options)
+              /*
+               * Displays the search form. Calling this method is the final
+               * step in activating a Custom Search Element object, and it
+               * produces the UI and search containers.
+               *
+               * .draw(selector, options)
+               */
               customSearchControl.draw('cse', options);
 
-              // parse url params
+              /*
+               * Parse URL parameters
+               * @return array params - array of parameters from querystring
+               */
               function parseParamsFromUrl() {
                 var params = {};
                 var parts = window.location.search.substr(1).split('&');
@@ -157,14 +173,18 @@
                 return params;
               }
 
-              // get the url params
+              // Get array of the url querystring params
               var urlParams = parseParamsFromUrl();
+
+              // Param for the search query
               var queryParamName = 'q';
 
-              // if the search param is in the query string, populate the search form text input with it
+              // If the search param is in the querystring,
+              // populate the search form text input with it
               if (urlParams[queryParamName]) {
                 customSearchControl.execute(urlParams[queryParamName]);
               }
+
             }, true);
 
             //--><!]]>

@@ -57,36 +57,7 @@
         </button>
       </div><!-- .ma__header__button-container -->
       <div class="ma__header__nav-container">
-        <div class="ma__header__nav-search">
-          <section class="ma__header-search">
-            <div id="cse-search-form-mobile" style="width: 100%;">Loading</div>
-            <script src="//www.google.com/jsapi" type="text/javascript"></script>
-            <script type="text/javascript">
-              <!--//--><![CDATA[// ><!--
-              /*
-                begin google custom search js embed
-                using Mass.gov custom search engine at cse.google.com
-                v1 code
-               */
-              google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
-              google.setOnLoadCallback(function() {
-                var customSearchOptions = {};
-                var orderByOptions = {};
-                orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
-                customSearchOptions['enableOrderBy'] = true;
-                customSearchOptions['orderByOptions'] = orderByOptions;
-                var customSearchControl =   new google.search.CustomSearchControl('010551267445528504028:ivl9x2rf5e8', customSearchOptions);
-                customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-                var options = new google.search.DrawOptions();
-                options.enableSearchboxOnly('/search', 'q');
-                options.setAutoComplete(true);
-                customSearchControl.draw('cse-search-form-mobile', options);
-              }, true);
-
-              //--><!]]>
-            </script>
-          </section>
-        </div><!-- .ma__header__nav-search -->
+        {% include directory ~ "/templates/includes/csesearchform--mobile.html.twig" %}
         <div class="ma__header__main-nav">
           {{ page.primary_menu }}
         </div><!-- .ma__header__main-nav -->
@@ -104,26 +75,26 @@
       <div class="ma__collage-header__container">
         <style>
           #GUID831741781374891 {
-            background-image: url('/{{directory}}/images/placeholder/250x250.png');
+            background-image: url('/themes/custom/mayflower/pilot-home-images/tophero-250.png');
           }
 
           #GUID831741781374893 {
-            background-image: url('/{{directory}}/images/placeholder/250x250.png');
+            background-image: url('/themes/custom/mayflower/pilot-home-images/topright-250.png');
           }
 
           #GUID831741781374892 {
-            background-image: url('/{{directory}}/images/placeholder/250x250.png');
+            background-image: url('/themes/custom/mayflower/pilot-home-images/topleft-250.png');
           }
 
           @media (min-width: 700px) {
             #GUID831741781374891 {
-              background-image: url('/{{directory}}/images/placeholder/900x700.png');
+              background-image: url('/themes/custom/mayflower/pilot-home-images/tophero.png');
             }
             #GUID831741781374892 {
-              background-image: url('/{{directory}}/images/placeholder/500x300.png');
+              background-image: url('/themes/custom/mayflower/pilot-home-images/topleft.png');
             }
             #GUID831741781374893 {
-              background-image: url('/{{directory}}/images/placeholder/500x500.png');
+              background-image: url('/themes/custom/mayflower/pilot-home-images/topright.png');
             }
           }
         </style>
@@ -134,13 +105,13 @@
         </div>
         <div class="ma__collage-header__content">
           <div  class="ma__collage-header__title">
-            <h1>Welcome to the Mass.Gov Pilot</h1>
+            <h1>Welcome to the Mass.gov Pilot</h1>
           </div>
           <div class="ma__collage-header__details">
-            <h3>We're redesigning this website to make it easier to find the things you need.</h3>
-            <p>This is a big project, so we’re going public bit by bit, right here where you can see it and be a part of it. We hope you’ll explore the new site and provide some feedback so we can keep improving it as we add more information and features.</p>
+            <h3>This is our testing ground for a new Mass.gov website. We have one goal: to make it easy for you find what you need. We’re going to try, test, and make changes until we get it right.</h3>
+            <p>To make a website that’s useful for everyone, we need your help. So start exploring! Let us know what works and what doesn’t — and check back for updates. We’ll keep improving this site as we learn more about what you want and need.</p>
 
-            <p>Thank you for being a part of this project!</p>
+            <p>Thank you for helping us make a better and bolder Mass.gov.</p>
           </div>
         </div>
       </div>
@@ -325,7 +296,7 @@
       <section class="ma__personal-message">
         <div class="ma__personal-message__container">
           <div class="ma__personal-message__image">
-            <img width="250" height="250" alt="Governor Baker" src="/{{directory}}/images/placeholder/250x250.png" />
+            <img width="250" height="250" alt="Governor Baker" src="/{{directory}}/pilot-home-images/governor-baker.png" />
           </div>
           <div class="ma__personal-message__content">
             <h2 class="ma__personal-message__title">A Message from Governor Baker</h2>
@@ -338,9 +309,9 @@
 
       <section class="ma__feedback-form" id="GUID8317417813234325">
         <style>
-          #GUID8317417813234325 {
+          /*#GUID8317417813234325 {
             background-image: url('/{{ directory }}/images/placeholder/800x400.png');
-          }
+          }*/
 
           @media (min-width: 801px) {
             #GUID8317417813234325 {
