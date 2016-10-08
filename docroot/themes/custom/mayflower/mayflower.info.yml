@@ -28,6 +28,7 @@ regions:
 libraries:
   - mayflower/global-css
   - mayflower/global-js
+  - mayflower/google-jsapi
 
 libraries-override:
   core/modernizr: mayflower/mass-modernizr

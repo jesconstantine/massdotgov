@@ -10,6 +10,11 @@ pilot-css:
     theme:
       css/pilot-generated.css: {}
 
+google-search-results-css:
+  css:
+    theme:
+      css/gcse-search-results.css: {}
+
 global-js:
   js:
     # js/vendor-generated.js: {}
@@ -18,6 +23,14 @@ global-js:
     - core/jquery
     - mayflower/mass-modernizr
 
+google-jsapi:
+  header: true
+  js:
+    //www.google.com/jsapi: { type: external, attributes: { defer: true, async: true }}
+
+google-search-results-js:
+  js:
+    js/google-custom-search-results.js: {}
 
 mass-modernizr:
   header: true
