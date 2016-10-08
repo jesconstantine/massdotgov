@@ -10,10 +10,10 @@ pilot-css:
     theme:
       css/pilot-generated.css: {}
 
-google-search-results-css:
+google-search-css:
   css:
     theme:
-      css/gcse-search-results.css: {}
+      css/gcse-search.css: {}
 
 global-js:
   js:
@@ -27,6 +27,10 @@ google-jsapi:
   header: true
   js:
     //www.google.com/jsapi: { type: external, attributes: { defer: true, async: true }}
+
+google-search-form-header-js:
+  js:
+    js/google-custom-search-forms.js: {}
 
 google-search-results-js:
   js:

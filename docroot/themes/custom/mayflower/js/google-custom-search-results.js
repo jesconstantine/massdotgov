@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  /* Common JS for google custom search */
+  /* JS for google custom search results page */
   /*
    * load the google custom search module
    * - with english language
