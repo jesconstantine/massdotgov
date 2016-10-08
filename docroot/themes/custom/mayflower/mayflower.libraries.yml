@@ -26,7 +26,7 @@ global-js:
 google-jsapi:
   header: true
   js:
-    //www.google.com/jsapi: { type: external, attributes: { defer: true, async: true }}
+    //www.google.com/jsapi: { type: external }
 
 google-search-form-header-js:
   js:
