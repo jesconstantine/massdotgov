@@ -1,18 +1,10 @@
-/* Google Custom Search Engine */
+/* Common JS for google custom search HEADER + MOBILE forms (loads globally)
+ * Using Mass.gov custom search engine at cse.google.com
+ * - api v1 js code
+ * - search results page JS in google-custom-search-results.js
+ */
 (function() {
   'use strict';
-
-  /* Common JS for HEADER + MOBILE google custom search forms */
-  /*
-   * load the google custom search module
-   * - with english language
-   * - with minimalist theme
-   */
-  /*
-    Begin google custom search js embed - MOBILE FORM ONLY
-    Using Mass.gov custom search engine at cse.google.com
-    api v1 js code
-   */
 
   /*
    * load the google custom search module
@@ -21,7 +13,9 @@
    */
   google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
 
+  /* setOnLoadCallback(callback, @BOOLEAN runOnDomLoad) */
   google.setOnLoadCallback(function() {
+
     var cx = '010551267445528504028:ivl9x2rf5e8'; // search engine id
 
     /*
@@ -119,7 +113,6 @@
      *
      * Currently, when a query is entered in mobile search, the
      * autocomplete dropdown appears under the other header nav form
-     * See #18 in github.
      */
 
     /*

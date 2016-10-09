@@ -1,8 +1,11 @@
-/* Google Custom Search Engine */
+/* JS for google custom search results page content FORM + RESULTS (loads once)
+ * Using Mass.gov custom search engine at cse.google.com
+ * - api v1 js code
+ * - header and mobile nav search forms js in google-custom-search-forms.js
+ */
 (function() {
   'use strict';
 
-  /* JS for google custom search results page */
   /*
    * load the google custom search module
    * - with english language
@@ -10,7 +13,9 @@
    */
   google.load('search', '1', {language: 'en', style: google.loader.themes.MINIMALIST});
 
+  /* setOnLoadCallback(callback, @BOOLEAN runOnDomLoad) */
   google.setOnLoadCallback(function() {
+
     var cx = '010551267445528504028:ivl9x2rf5e8'; // search engine id
 
     /*
@@ -27,16 +32,6 @@
       maxCompletions: 3
     };
     customSearchOptions['autoCompleteOptions'] = autoCompleteOptions;
-
-
-
-
-
-  /*
-    Begin google custom search js embed - RESULT PAGE: FORM + RESULTS
-    Using Mass.gov custom search engine at cse.google.com
-    api v1 js code
-   */
 
     /*
      * Creates an instance of the CustomSearchControl object,
@@ -98,7 +93,7 @@
     // Get array of the url querystring params
     var urlParams = parseParamsFromUrl();
 
-    // Param for the search query
+    // Set param for the search query
     var queryParamName = 'q';
 
     // If the search param is in the querystring,
