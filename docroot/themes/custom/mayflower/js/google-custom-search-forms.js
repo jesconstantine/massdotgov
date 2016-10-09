@@ -64,13 +64,17 @@
     headerOptions.setAutoComplete(true);
 
     /*
-     * Displays the search form. Calling this method is the final step
-     * in activating a Custom Search Element object, and it produces the
-     * UI and search containers.
+     * Displays the search form (when it exists, IE not on results page).
+     * Calling this method is the final step in activating a Custom Search
+     * Element object, and it produces the UI and search containers.
      *
      * .draw(selector, options)
      */
-    headerSearchControl.draw('cse-header-search-form', headerOptions);
+    var headerSearchExists = document.getElementById("cse-header-search-form");
+
+    if (headerSearchExists) {
+      headerSearchControl.draw('cse-header-search-form', headerOptions);
+    }
 
 
 
